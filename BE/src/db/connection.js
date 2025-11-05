@@ -2,7 +2,7 @@ import Database from "better-sqlite3";
 import fs from "fs";
 import path from "path";
 
-const dbPath = path.resolve("./data/database.sqlite");
+const dbPath = path.resolve("./data/database.db");
 const initPath = path.resolve("./src/db/init.sql");
 
 const dbExists = fs.existsSync(dbPath);
