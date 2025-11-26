@@ -13,6 +13,31 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET /api/posts/list
+router.get("/list", async (req, res) => {
+  const {
+    limit = 10,
+    page = 1,
+    sortBy = 'created_at',
+    sortDir = 'ASC',
+    filterBy,
+    filterText
+  } = req.query;
+  try {
+    const posts = await postService.getList({
+      limit: Number(limit),
+      page: Number(page),
+      sortBy,
+      sortDir,
+      filterBy,
+      filterText
+    });
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // GET /api/posts/:id
 router.get("/:id", async (req, res) => {
   try {

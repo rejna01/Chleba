@@ -15,7 +15,7 @@ const insertUser = db.prepare(`
 
 const users = Array.from({ length: 5 }).map(() => ({
   name: faker.person.fullName(),
-  nickname: faker.internet.userName(),
+  nickname: faker.internet.username(),
   email: faker.internet.email(),
   avatar: faker.image.avatar(),
   bio: faker.lorem.sentence(),
