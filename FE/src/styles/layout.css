@@ -1,0 +1,100 @@
+.myHeader {
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.myHeader.scrolled {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.headerChleba {
+  width: 60px;
+  height: auto;
+  left: 0;
+  transform: translateY(10%);
+  padding-left: 10px;
+}
+
+.headerText {
+  right: 0;
+  padding-right: 10px;
+}
+.myFooter {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.footerSkaut {
+  width: 30px;
+  height: auto;
+  left: 0;
+  transform: translateY(25%);
+  padding-left: 10px;
+}
+
+.hamburgerButton {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.dropdownMenu {
+  position: absolute; /* nebo relative, podle potřeby */
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 0px;
+  top: 100%;
+  transform-origin: top;
+
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+.dropdownMenu.hidden {
+  transform-origin: top;
+  transform: scaleY(0);
+  background: rgba(0, 0, 0, 0);
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+.dropdownMenu a {
+  position: relative;
+  padding: 4px 10px;
+  text-decoration: none;
+  color: black;
+}
+.dropdownMenu a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 25%; /* odsazení zleva - tím zkrátíš šířku */
+  width: 50%; /* délka čáry */
+  height: 2px; /* tloušťka čáry */
+  background-color: #3b3b3b81; /* barva čáry */
+}
+
+.dropdownMenu a:last-child::after {
+  content: none; /* poslední link nemá čáru */
+}
+.dropdownMenu a:hover {
+  background-color: #eee;
+}
+
+.hamburgerButton {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
