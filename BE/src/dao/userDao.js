@@ -44,7 +44,9 @@ function insert(name, nickname, email, avatar, bio) {
   const existing = findByName(name);
   if (existing) return existing;
 
-  const stmt = db.prepare("INSERT INTO users (name, nickname, email, avatar, bio) VALUES (?)");
+  const stmt = db.prepare(
+    "INSERT INTO users (name, nickname, email, avatar, bio) VALUES (?)"
+  );
   const result = stmt.run(name, nickname, email, avatar, bio);
   return { id: result.lastInsertRowid, name };
 }
@@ -53,4 +55,4 @@ function removeUserById(userId) {
   db.prepare("DELETE FROM user WHERE id = ?").run(userId);
 }
 
-export default { getUserById , getUserByIdForPost };
+export default { getAll, getUserById, getUserByIdForPost };
