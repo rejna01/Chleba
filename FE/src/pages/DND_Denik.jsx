@@ -1,53 +1,62 @@
 import Styles from "./DND_Denik.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function DND_Denik() {
   const [editing, setEditing] = useState(true);
+  const abilityNames = [
+    "strength",
+    "dexterity",
+    "constitution",
+    "intelligence",
+    "wisdom",
+    "charisma",
+  ];
+  useEffect(() => {
+    fetch("/parnback.json")
+      .then((res) => res.json())
+      .then((data) => {
+        for (const key of abilityNames) {
+          document.getElementById(key).value = data.ability[key];
+          document.getElementById(key + "Bonus").value = Math.floor(
+            (data.ability[key] - 10) / 2
+          );
+        }
+        document.getElementById("inspiration").value = data.inspiration;
+        document.getElementById("proficiency_bonus").value =
+          data.proficiency_bonus;
+      });
+  }, []);
+
   return (
     <div className={Styles.sheet}>
       {/* LEFT COLUMN */}
       <div className={Styles.leftColumn}>
         <section className={Styles.abilityScores}>
-          <div className={Styles.ability}>
-            <label htmlFor="strength">Strength</label>
-            <input id="strength"></input>
-            <input id="strength"></input>
-          </div>
-          <div className={Styles.ability}>
-            <label htmlFor="dexterity">Dexterity</label>
-            <input id="dexterity"></input>
-            <input id="strength"></input>
-          </div>
-          <div className={Styles.ability}>
-            <label htmlFor="constitution">Constitution</label>
-            <input id="constitution"></input>
-            <input id="strength"></input>
-          </div>
-          <div className={Styles.ability}>
-            <label htmlFor="strength">Intelligence</label>
-            <input id="strength"></input>
-            <input id="strength"></input>
-          </div>
-          <div className={Styles.ability}>
-            <label htmlFor="wisdom">Wisdom</label>
-            <input id="wisdom"></input>
-            <input id="strength"></input>
-          </div>
-          <div className={Styles.ability}>
-            <label htmlFor="charisma">Charisma</label>
-            <input id="charisma"></input>
-            <input id="strength"></input>
-          </div>
+          {abilityNames.map((ability) => (
+            <div key={ability} className={Styles.ability}>
+              <label htmlFor={ability}>
+                {ability.charAt(0).toUpperCase() + ability.slice(1)}
+              </label>
+              <input id={ability + "Bonus"}></input>
+              <input id={ability}></input>
+            </div>
+          ))}
         </section>
 
         <section className={Styles.abilityOther}>
-          <section className={Styles.inspiration}>INSPIRATION</section>
+          <section className={Styles.inspiration}>
+            <input id="inspiration"></input>
+            <label htmlFor="inspiration">Inspiration</label>
+          </section>
           <section className={Styles.proficiency_bonus}>
-            PROFICIENCY BONUS
+            <input id="proficiency_bonus"></input>
+            <label htmlFor="proficiency_bonus">PROFICIENCY BONUS</label>
           </section>
 
           <section className={Styles.savingThrows}>
-            <div className={Styles.savingThrow}>Strength</div>
+            <div className={Styles.savingThrow}>
+              <input type="checkbox" id="strengthCheck"></input>Strength
+            </div>
             <div className={Styles.savingThrow}>Dexterity</div>
             <div className={Styles.savingThrow}>Constitution</div>
             <div className={Styles.savingThrow}>Intelligence</div>

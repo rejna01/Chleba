@@ -1,0 +1,12 @@
+{
+  "ability": {
+    "strength": 8,
+    "dexterity": 18,
+    "constitution": 12,
+    "intelligence": 10,
+    "wisdom": 16,
+    "charisma": 15
+  },
+  "inspiration": 0,
+  "proficiency_bonus": 2
+}
