@@ -1,7 +1,39 @@
 import Styles from "./DND_Denik.module.css";
 import { useState, useEffect } from "react";
 
-function DND_Denik() {
+
+export default function DND_Denik() {
+  const [editing, setEditing] = useState(true);
+  const [loading, setloading] = useState(true);
+    useEffect(() => {
+    fetch("/parnback.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const sheet = data;
+        loading = false;
+  }, []);
+  return (
+    <div className="sheet-container">
+      {sheet.fields.map(field => (
+        <input
+          key={field.id}
+          type={field.type}
+          value={field.value}
+          /*onChange={(e) => updateField(field.id, e.target.value)}*/
+          className="field"
+          style={{
+            position: 'absolute',
+            top: field.top,
+            left: field.left,
+            width: field.width
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/*function DND_Denik() {
   const [editing, setEditing] = useState(true);
   const abilityNames = [
     "strength",
@@ -29,7 +61,7 @@ function DND_Denik() {
 
   return (
     <div className={Styles.sheet}>
-      {/* LEFT COLUMN */}
+      {/* LEFT COLUMN *//*}
       <div className={Styles.leftColumn}>
         <section className={Styles.abilityScores}>
           {abilityNames.map((ability) => (
@@ -94,7 +126,7 @@ function DND_Denik() {
         </section>
       </div>
 
-      {/* CENTER COLUMN */}
+      {/* CENTER COLUMN *//*}
       <div className={Styles.centerColumn}>
         <section className={Styles.fancyBox}>
           <section className={Styles.acInitSpeed}>
@@ -124,7 +156,7 @@ function DND_Denik() {
         </section>
       </div>
 
-      {/* RIGHT COLUMN */}
+      {/* RIGHT COLUMN *//*}
       <div className={Styles.rightColumn}>
         <section className={Styles.fancyBox}>
           <section className={Styles.box}>Personality Traits</section>
@@ -135,7 +167,7 @@ function DND_Denik() {
         <section className={Styles.box}>FEATURES & TRAITS</section>
       </div>
     </div>
-  );
+  );*/
 }
 
 export default DND_Denik;
