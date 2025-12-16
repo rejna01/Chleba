@@ -135,11 +135,36 @@ function DND_Help() {
             width={field.w}
             height={field.h}
           >
-            <input
-              type={field.type}
-              defaultValue={field.value}
-              className={Styles.field}
-            />
+            {field.type === "checkbox" ? (
+              <input
+                readOnly
+                type="radio"
+                checked={field.value}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  margin: "0px",
+                  verticalAlign: "top",
+                  backgroundColor: "black",
+                }}
+              />
+            ) : (
+              <div
+                contentEditable
+                suppressContentEditableWarning
+                spellCheck={false}
+                className={Styles.field}
+                style={{
+                  textAlign: field.type == "number" ? "center" : "left",
+
+                  overflow: "hidden",
+                  width: "100%",
+                  height: "100%",
+                }}
+              >
+                {field.value}
+              </div>
+            )}
           </foreignObject>
         ))}
 

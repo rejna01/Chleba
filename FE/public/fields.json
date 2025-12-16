@@ -14,6 +14,1104 @@
       "value": "ParnDark"
     },
     {
+      "id": "strengthCheckbox",
+      "x": 166,
+      "y": 340,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "dexterityCheckbox",
+      "x": 166,
+      "y": 363,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "constitutionCheckbox",
+      "x": 166,
+      "y": 385,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "intelligenceCheckbox",
+      "x": 166,
+      "y": 407,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "wisdomCheckbox",
+      "x": 166,
+      "y": 429,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "charismaCheckbox",
+      "x": 166,
+      "y": 451,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "acrobaticsCheckbox",
+      "x": 166,
+      "y": 528,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "animalHandlingCheckbox",
+      "x": 166,
+      "y": 551,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "arcanaCheckbox",
+      "x": 166,
+      "y": 573,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "athleticsCheckbox",
+      "x": 166,
+      "y": 595,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deceptionCheckbox",
+      "x": 166,
+      "y": 617,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "historyCheckbox",
+      "x": 166,
+      "y": 639,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "insightCheckbox",
+      "x": 166,
+      "y": 661,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "intimidationCheckbox",
+      "x": 166,
+      "y": 683,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "investigationCheckbox",
+      "x": 166,
+      "y": 705,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "medicineCheckbox",
+      "x": 166,
+      "y": 727,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "natureCheckbox",
+      "x": 166,
+      "y": 749,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "perceptionCheckbox",
+      "x": 166,
+      "y": 771,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "performanceCheckbox",
+      "x": 166,
+      "y": 793,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "persuasionCheckbox",
+      "x": 166,
+      "y": 815,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "religionCheckbox",
+      "x": 166,
+      "y": 837,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "sleightOfHandCheckbox",
+      "x": 166,
+      "y": 859,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "stealthCheckbox",
+      "x": 166,
+      "y": 881,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "survivalCheckbox",
+      "x": 166,
+      "y": 903,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deathSavesCheckboxSuccess1",
+      "x": 567,
+      "y": 528,
+      "w": 13,
+      "h": 13,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deathSavesCheckboxSuccess2",
+      "x": 587,
+      "y": 528,
+      "w": 13,
+      "h": 13,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deathSavesCheckboxSuccess3",
+      "x": 608,
+      "y": 528,
+      "w": 13,
+      "h": 13,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deathSavesCheckboxFailure1",
+      "x": 567,
+      "y": 552,
+      "w": 13,
+      "h": 13,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deathSavesCheckboxFailure2",
+      "x": 587,
+      "y": 552,
+      "w": 13,
+      "h": 13,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "deathSavesCheckboxFailure3",
+      "x": 608,
+      "y": 552,
+      "w": 13,
+      "h": 13,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells1Prepared",
+      "x": 53,
+      "y": 3182,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells2Prepared",
+      "x": 53,
+      "y": 3205,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells3Prepared",
+      "x": 53,
+      "y": 3228,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells4Prepared",
+      "x": 53,
+      "y": 3251,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells5Prepared",
+      "x": 53,
+      "y": 3274,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells6Prepared",
+      "x": 53,
+      "y": 3297,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells7Prepared",
+      "x": 53,
+      "y": 3319,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells8Prepared",
+      "x": 53,
+      "y": 3342,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells9Prepared",
+      "x": 53,
+      "y": 3365,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells10Prepared",
+      "x": 53,
+      "y": 3388,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells11Prepared",
+      "x": 53,
+      "y": 3411,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel1Spells12Prepared",
+      "x": 53,
+      "y": 3434,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells1Prepared",
+      "x": 53,
+      "y": 3530,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells2Prepared",
+      "x": 53,
+      "y": 3553,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells3Prepared",
+      "x": 53,
+      "y": 3575,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells4Prepared",
+      "x": 53,
+      "y": 3598,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells5Prepared",
+      "x": 53,
+      "y": 3621,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells6Prepared",
+      "x": 53,
+      "y": 3644,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells7Prepared",
+      "x": 53,
+      "y": 3667,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells8Prepared",
+      "x": 53,
+      "y": 3690,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells9Prepared",
+      "x": 53,
+      "y": 3713,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells10Prepared",
+      "x": 53,
+      "y": 3735,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells11Prepared",
+      "x": 53,
+      "y": 3758,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells12Prepared",
+      "x": 53,
+      "y": 3781,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel2Spells13Prepared",
+      "x": 53,
+      "y": 3804,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells1Prepared",
+      "x": 362,
+      "y": 2882,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells2Prepared",
+      "x": 362,
+      "y": 2905,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells3Prepared",
+      "x": 362,
+      "y": 2928,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells4Prepared",
+      "x": 362,
+      "y": 2951,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells5Prepared",
+      "x": 362,
+      "y": 2974,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells6Prepared",
+      "x": 362,
+      "y": 2997,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells7Prepared",
+      "x": 362,
+      "y": 3019,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells8Prepared",
+      "x": 362,
+      "y": 3042,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells9Prepared",
+      "x": 362,
+      "y": 3065,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells10Prepared",
+      "x": 362,
+      "y": 3088,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells11Prepared",
+      "x": 362,
+      "y": 3111,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells12Prepared",
+      "x": 362,
+      "y": 3134,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel3Spells13Prepared",
+      "x": 362,
+      "y": 3157,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells1Prepared",
+      "x": 362,
+      "y": 3250,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells2Prepared",
+      "x": 362,
+      "y": 3273,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells3Prepared",
+      "x": 362,
+      "y": 3296,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells4Prepared",
+      "x": 362,
+      "y": 3319,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells5Prepared",
+      "x": 362,
+      "y": 3342,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells6Prepared",
+      "x": 362,
+      "y": 3365,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells7Prepared",
+      "x": 362,
+      "y": 3387,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells8Prepared",
+      "x": 362,
+      "y": 3411,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells9Prepared",
+      "x": 362,
+      "y": 3434,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells10Prepared",
+      "x": 362,
+      "y": 3456,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells11Prepared",
+      "x": 362,
+      "y": 3479,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells12Prepared",
+      "x": 362,
+      "y": 3502,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel4Spells13Prepared",
+      "x": 362,
+      "y": 3525,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells1Prepared",
+      "x": 362,
+      "y": 3620,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells2Prepared",
+      "x": 362,
+      "y": 3643,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells3Prepared",
+      "x": 362,
+      "y": 3666,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells4Prepared",
+      "x": 362,
+      "y": 3689,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells5Prepared",
+      "x": 362,
+      "y": 3712,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells6Prepared",
+      "x": 362,
+      "y": 3735,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells7Prepared",
+      "x": 362,
+      "y": 3758,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells8Prepared",
+      "x": 362,
+      "y": 3781,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel5Spells9Prepared",
+      "x": 362,
+      "y": 3804,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells1Prepared",
+      "x": 667,
+      "y": 2882,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells2Prepared",
+      "x": 667,
+      "y": 2905,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells3Prepared",
+      "x": 667,
+      "y": 2928,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells4Prepared",
+      "x": 667,
+      "y": 2951,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells5Prepared",
+      "x": 667,
+      "y": 2974,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells6Prepared",
+      "x": 667,
+      "y": 2997,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells7Prepared",
+      "x": 667,
+      "y": 3019,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells8Prepared",
+      "x": 667,
+      "y": 3042,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel6Spells9Prepared",
+      "x": 667,
+      "y": 3065,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells1Prepared",
+      "x": 667,
+      "y": 3159,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells2Prepared",
+      "x": 667,
+      "y": 3182,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells3Prepared",
+      "x": 667,
+      "y": 3205,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells4Prepared",
+      "x": 667,
+      "y": 3228,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells5Prepared",
+      "x": 667,
+      "y": 3251,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells6Prepared",
+      "x": 667,
+      "y": 3274,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells7Prepared",
+      "x": 667,
+      "y": 3297,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells8Prepared",
+      "x": 667,
+      "y": 3319,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel7Spells9Prepared",
+      "x": 667,
+      "y": 3342,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells1Prepared",
+      "x": 667,
+      "y": 3436,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells2Prepared",
+      "x": 667,
+      "y": 3459,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells3Prepared",
+      "x": 667,
+      "y": 3482,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells4Prepared",
+      "x": 667,
+      "y": 3505,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells5Prepared",
+      "x": 667,
+      "y": 3528,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells6Prepared",
+      "x": 667,
+      "y": 3551,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel8Spells7Prepared",
+      "x": 667,
+      "y": 3574,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells1Prepared",
+      "x": 667,
+      "y": 3667,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells2Prepared",
+      "x": 667,
+      "y": 3690,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells3Prepared",
+      "x": 667,
+      "y": 3713,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells4Prepared",
+      "x": 667,
+      "y": 3735,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells5Prepared",
+      "x": 667,
+      "y": 3758,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells6Prepared",
+      "x": 667,
+      "y": 3781,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
+      "id": "spellLevel9Spells7Prepared",
+      "x": 667,
+      "y": 3804,
+      "w": 10,
+      "h": 10,
+      "type": "checkbox",
+      "value": true
+    },
+    {
       "id": "classAndLevel",
       "x": 442,
       "y": 85,

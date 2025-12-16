@@ -61,7 +61,7 @@ router.put("/", (req, res) => {
 
   // INSERT OR REPLACE
   db.prepare(
-    "INSERT OR REPLACE INTO fields (entity_id, field_name, value) VALUES (?, ?, ?)"
+    "INSERT OR REPLACE INTO fields (entity_id, field_name, value) VALUES (?, ?, CAST(? AS INTEGER))"
   ).run(id, nameOfField, value);
 
   res.json({ success: true });

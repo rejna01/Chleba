@@ -4,8 +4,8 @@ import Layout from "./layout/LayoutIndex";
 
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
-import DND_Denik from "./pages/DND_Denik.jsx";
-import DND_Help from "./pages/DND_Help.jsx";
+import DND_Denik from "./dnd/DND_Denik.jsx";
+import DND_Help from "./dnd/DND_Help.jsx";
 
 function App() {
   return (
