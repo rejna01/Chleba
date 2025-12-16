@@ -1,10 +1,133 @@
 @font-face {
   font-family: "MyFont";
   src: url("../assets/fonts/Runewood-e9Lvp.ttf") format("truetype");
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.viewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+.canvas {
+  position: relative;
+  width: 90vw; /* změna podle viewportu */
+  max-width: 1200px; /* volitelné omezení */
+}
+
+.canvas img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.canvas img {
+  width: 100%;
+  display: block;
+}
+
+.field {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #000;
+  text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+/*
+body {
+  margin: 0;
+  padding: 0;
+}
+.viewport {
+  overflow: hidden;
+  /*width: 100vw;*/ /*
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.field {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  font-family: "MyFont", serif;
+  font-size: 18px;
+
+  background: transparent;
+  border: none;
+  outline: none;
+
+  color: #000;
+}
+
+.loading {
+  color: white;
+  padding: 20px;
+}*/ /*@font-face {
+  font-family: "MyFont";
+  src: url("../assets/fonts/Runewood-e9Lvp.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+body {
+  margin: 0;
+  padding: 0;
+}
+.viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: #111;
+  display: flex;
+  justify-content: center;
+}
 
+.canvas {
+  position: relative;
+  transform-origin: top left;
+}
+
+.canvas img {
+  display: block;
+}
+.field {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+/*
+
+.sheetContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/DnD-background.png");
+}
 .inspiration,
 .proficiency_bonus {
   display: flex;
@@ -49,7 +172,7 @@
   width: 60%;
   margin: 10%;
   margin-bottom: 20px;
-}*/
+}*/ /*
 .ability {
   position: relative;
   border: 1px solid black;
@@ -128,3 +251,4 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 5px;
 }
+*/

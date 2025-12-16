@@ -10,8 +10,7 @@
       "y": 100,
       "w": 226,
       "h": 40,
-      "type": "text",
-      "value": "ParnDark"
+      "type": "text"
     },
     {
       "id": "classAndLevel",
@@ -19,26 +18,23 @@
       "y": 85,
       "w": 168,
       "h": 20,
-      "type": "text",
-      "value": "classAndLevel"
+      "type": "text"
     },
     {
       "id": "background",
       "x": 620,
       "y": 85,
-      "w": 168,
+      "w": 162,
       "h": 20,
-      "type": "text",
-      "value": "background"
+      "type": "text"
     },
     {
       "id": "playerName",
       "x": 783,
       "y": 85,
-      "w": 168,
+      "w": 150,
       "h": 20,
-      "type": "text",
-      "value": "playerName"
+      "type": "text"
     },
     {
       "id": "race",
@@ -46,26 +42,23 @@
       "y": 128,
       "w": 168,
       "h": 20,
-      "type": "text",
-      "value": "race"
+      "type": "text"
     },
     {
       "id": "aligment",
       "x": 620,
       "y": 128,
-      "w": 168,
+      "w": 162,
       "h": 20,
-      "type": "text",
-      "value": "aligment"
+      "type": "text"
     },
     {
       "id": "experiencePoints",
       "x": 783,
       "y": 128,
-      "w": 168,
+      "w": 150,
       "h": 20,
-      "type": "text",
-      "value": "experiencePoints"
+      "type": "text"
     },
     {
       "id": "strengthBonus",
@@ -73,8 +66,7 @@
       "y": 254,
       "w": 61,
       "h": 47,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "dexterityBonus",
@@ -82,8 +74,7 @@
       "y": 371,
       "w": 61,
       "h": 47,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "constitutionBonus",
@@ -91,8 +82,7 @@
       "y": 488,
       "w": 61,
       "h": 47,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "intelligenceBonus",
@@ -100,8 +90,7 @@
       "y": 605,
       "w": 61,
       "h": 47,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "wisdomBonus",
@@ -109,8 +98,7 @@
       "y": 722,
       "w": 61,
       "h": 47,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "charismaBonus",
@@ -118,8 +106,7 @@
       "y": 839,
       "w": 61,
       "h": 47,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "strength",
@@ -127,8 +114,7 @@
       "y": 305,
       "w": 23,
       "h": 26,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "dexterity",
@@ -136,8 +122,7 @@
       "y": 422,
       "w": 23,
       "h": 26,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "constitution",
@@ -145,8 +130,7 @@
       "y": 539,
       "w": 23,
       "h": 26,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "intelligence",
@@ -154,8 +138,7 @@
       "y": 656,
       "w": 23,
       "h": 26,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "wisdom",
@@ -163,8 +146,7 @@
       "y": 773,
       "w": 23,
       "h": 26,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "charisma",
@@ -172,8 +154,7 @@
       "y": 890,
       "w": 23,
       "h": 26,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "inspiration",
@@ -181,8 +162,7 @@
       "y": 214,
       "w": 32,
       "h": 27,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "proeficiencyBonus",
@@ -190,8 +170,7 @@
       "y": 277,
       "w": 32,
       "h": 27,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "savingThrowStrength",
@@ -199,8 +178,7 @@
       "y": 331,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "savingThrowDexterity",
@@ -208,8 +186,7 @@
       "y": 354,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "savingThrowConstitution",
@@ -217,8 +194,7 @@
       "y": 377,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "savingThrowIntelligence",
@@ -226,8 +202,7 @@
       "y": 399,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "savingThrowWisdom",
@@ -235,8 +210,7 @@
       "y": 421,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "savingThrowCharisma",
@@ -244,8 +218,7 @@
       "y": 444,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "acrobatics",
@@ -253,8 +226,7 @@
       "y": 522,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "animalHandling",
@@ -262,8 +234,7 @@
       "y": 545,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "arcana",
@@ -271,8 +242,7 @@
       "y": 567,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "athletics",
@@ -280,8 +250,7 @@
       "y": 589,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "deception",
@@ -289,8 +258,7 @@
       "y": 611,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "history",
@@ -298,8 +266,7 @@
       "y": 633,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "insight",
@@ -307,8 +274,7 @@
       "y": 655,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "intimidation",
@@ -316,8 +282,7 @@
       "y": 677,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "investigation",
@@ -325,8 +290,7 @@
       "y": 699,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "medicine",
@@ -334,8 +298,7 @@
       "y": 721,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "nature",
@@ -343,8 +306,7 @@
       "y": 743,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "perception",
@@ -352,8 +314,7 @@
       "y": 765,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "performance",
@@ -361,8 +322,7 @@
       "y": 787,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "persuasion",
@@ -370,8 +330,7 @@
       "y": 809,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "religion",
@@ -379,8 +338,7 @@
       "y": 831,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "sleightOfHand",
@@ -388,8 +346,7 @@
       "y": 853,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "stealth",
@@ -397,8 +354,7 @@
       "y": 875,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "passiveWisdom",
@@ -406,8 +362,7 @@
       "y": 965,
       "w": 38,
       "h": 29,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "otherProficienciesAndLanguages",
@@ -415,8 +370,7 @@
       "y": 1028,
       "w": 252,
       "h": 203,
-      "type": "text",
-      "value": "otherProficienciesAndLanguages"
+      "type": "text"
     },
     {
       "id": "survival",
@@ -424,8 +378,7 @@
       "y": 897,
       "w": 23,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "armorClass",
@@ -433,8 +386,7 @@
       "y": 232,
       "w": 41,
       "h": 37,
-      "type": "numebr",
-      "value": 10
+      "type": "numebr"
     },
     {
       "id": "initiative",
@@ -442,8 +394,7 @@
       "y": 232,
       "w": 55,
       "h": 48,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "Speed",
@@ -451,8 +402,7 @@
       "y": 232,
       "w": 55,
       "h": 48,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "currentHitPointsMaximum",
@@ -460,8 +410,7 @@
       "y": 321,
       "w": 150,
       "h": 20,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "currentHitPoints",
@@ -469,8 +418,7 @@
       "y": 349,
       "w": 243,
       "h": 48,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "temporaryHitPoints",
@@ -478,8 +426,7 @@
       "y": 432,
       "w": 243,
       "h": 48,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "totalHitDice",
@@ -487,8 +434,7 @@
       "y": 524,
       "w": 75,
       "h": 12,
-      "type": "text",
-      "value": "1d6"
+      "type": "text"
     },
     {
       "id": "hitDice",
@@ -496,8 +442,7 @@
       "y": 541,
       "w": 104,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "weaponName1",
@@ -505,8 +450,7 @@
       "y": 640,
       "w": 104,
       "h": 26,
-      "type": "text",
-      "value": "weaponName1"
+      "type": "text"
     },
     {
       "id": "weaponAttackBonus1",
@@ -514,8 +458,7 @@
       "y": 640,
       "w": 51,
       "h": 26,
-      "type": "text",
-      "value": "+5"
+      "type": "text"
     },
     {
       "id": "weaponDamage1",
@@ -523,8 +466,7 @@
       "y": 640,
       "w": 102,
       "h": 26,
-      "type": "text",
-      "value": "1d8+3"
+      "type": "text"
     },
     {
       "id": "weaponName2",
@@ -532,8 +474,7 @@
       "y": 675,
       "w": 104,
       "h": 26,
-      "type": "text",
-      "value": "weaponName2"
+      "type": "text"
     },
     {
       "id": "weaponAttackBonus2",
@@ -541,8 +482,7 @@
       "y": 675,
       "w": 51,
       "h": 26,
-      "type": "text",
-      "value": "+5"
+      "type": "text"
     },
     {
       "id": "weaponDamage2",
@@ -550,8 +490,7 @@
       "y": 675,
       "w": 102,
       "h": 26,
-      "type": "text",
-      "value": "1d8+3"
+      "type": "text"
     },
     {
       "id": "weaponName3",
@@ -559,8 +498,7 @@
       "y": 707,
       "w": 104,
       "h": 26,
-      "type": "text",
-      "value": "weaponName3"
+      "type": "text"
     },
     {
       "id": "weaponAttackBonus3",
@@ -568,8 +506,7 @@
       "y": 707,
       "w": 51,
       "h": 26,
-      "type": "text",
-      "value": "+5"
+      "type": "text"
     },
     {
       "id": "weaponDamage3",
@@ -577,8 +514,7 @@
       "y": 707,
       "w": 102,
       "h": 26,
-      "type": "text",
-      "value": "1d8+3"
+      "type": "text"
     },
     {
       "id": "attacsAndSpellcasting",
@@ -586,8 +522,7 @@
       "y": 741,
       "w": 272,
       "h": 181,
-      "type": "text",
-      "value": "attacsAndSpellcasting"
+      "type": "text"
     },
     {
       "id": "cp",
@@ -595,8 +530,7 @@
       "y": 978,
       "w": 38,
       "h": 30,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "sp",
@@ -604,8 +538,7 @@
       "y": 1021,
       "w": 38,
       "h": 30,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "ep",
@@ -613,8 +546,7 @@
       "y": 1063,
       "w": 38,
       "h": 30,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "gp",
@@ -622,8 +554,7 @@
       "y": 1105,
       "w": 38,
       "h": 30,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "pp",
@@ -631,8 +562,7 @@
       "y": 1148,
       "w": 38,
       "h": 30,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "equipment",
@@ -640,8 +570,7 @@
       "y": 970,
       "w": 188,
       "h": 260,
-      "type": "text",
-      "value": "equipment"
+      "type": "text"
     },
     {
       "id": "personalityTraits",
@@ -649,8 +578,7 @@
       "y": 230,
       "w": 245,
       "h": 79,
-      "type": "text",
-      "value": "personalityTraits"
+      "type": "text"
     },
     {
       "id": "ideals",
@@ -658,8 +586,7 @@
       "y": 340,
       "w": 245,
       "h": 60,
-      "type": "text",
-      "value": "ideals"
+      "type": "text"
     },
     {
       "id": "bonds",
@@ -667,8 +594,7 @@
       "y": 430,
       "w": 245,
       "h": 60,
-      "type": "text",
-      "value": "bonds"
+      "type": "text"
     },
     {
       "id": "flaws",
@@ -676,8 +602,7 @@
       "y": 521,
       "w": 245,
       "h": 60,
-      "type": "text",
-      "value": "flaws"
+      "type": "text"
     },
     {
       "id": "featuresAndTraits",
@@ -685,8 +610,7 @@
       "y": 630,
       "w": 269,
       "h": 607,
-      "type": "text",
-      "value": "featuresAndTraits"
+      "type": "text"
     },
     {
       "id": "characterName2",
@@ -694,8 +618,7 @@
       "y": 1398,
       "w": 226,
       "h": 40,
-      "type": "text",
-      "value": "ParnDark"
+      "type": "text"
     },
     {
       "id": "age",
@@ -703,8 +626,7 @@
       "y": 1376,
       "w": 166,
       "h": 27,
-      "type": "text",
-      "value": "age"
+      "type": "text"
     },
     {
       "id": "height",
@@ -712,8 +634,7 @@
       "y": 1376,
       "w": 166,
       "h": 27,
-      "type": "text",
-      "value": "height"
+      "type": "text"
     },
     {
       "id": "weight",
@@ -721,8 +642,7 @@
       "y": 1376,
       "w": 166,
       "h": 27,
-      "type": "text",
-      "value": "weight"
+      "type": "text"
     },
     {
       "id": "eyes",
@@ -730,8 +650,7 @@
       "y": 1418,
       "w": 166,
       "h": 27,
-      "type": "text",
-      "value": "eyes"
+      "type": "text"
     },
     {
       "id": "skin",
@@ -739,8 +658,7 @@
       "y": 1418,
       "w": 166,
       "h": 27,
-      "type": "text",
-      "value": "skin"
+      "type": "text"
     },
     {
       "id": "hair",
@@ -748,8 +666,7 @@
       "y": 1418,
       "w": 166,
       "h": 27,
-      "type": "text",
-      "value": "hair"
+      "type": "text"
     },
     {
       "id": "appearance",
@@ -757,8 +674,7 @@
       "y": 1507,
       "w": 263,
       "h": 357,
-      "type": "text",
-      "value": "appearance"
+      "type": "text"
     },
     {
       "id": "backstory",
@@ -766,8 +682,7 @@
       "y": 1926,
       "w": 263,
       "h": 605,
-      "type": "text",
-      "value": "backstory"
+      "type": "text"
     },
     {
       "id": "alliesAndOrganizations",
@@ -775,8 +690,7 @@
       "y": 1507,
       "w": 298,
       "h": 359,
-      "type": "text",
-      "value": "alliesAndOrganizations"
+      "type": "text"
     },
     {
       "id": "alliesAndOrganizationsName",
@@ -784,8 +698,7 @@
       "y": 1546,
       "w": 226,
       "h": 23,
-      "type": "text",
-      "value": "alliesAndOrganizationsName"
+      "type": "text"
     },
     {
       "id": "alliesAndOrganizationsSymbol",
@@ -793,8 +706,7 @@
       "y": 1573,
       "w": 229,
       "h": 191,
-      "type": "text",
-      "value": "alliesAndOrganizationsSymbol"
+      "type": "text"
     },
     {
       "id": "additionalFeaturesAndTraits",
@@ -802,8 +714,7 @@
       "y": 1909,
       "w": 572,
       "h": 332,
-      "type": "text",
-      "value": "additionalFeaturesAndTraits"
+      "type": "text"
     },
     {
       "id": "treasure",
@@ -811,8 +722,7 @@
       "y": 2282,
       "w": 572,
       "h": 251,
-      "type": "text",
-      "value": "treasure"
+      "type": "text"
     },
     {
       "id": "spellcastingClass",
@@ -820,8 +730,7 @@
       "y": 2690,
       "w": 226,
       "h": 40,
-      "type": "text",
-      "value": "spellcastingClass"
+      "type": "text"
     },
     {
       "id": "spellcastingAbility",
@@ -829,8 +738,7 @@
       "y": 2677,
       "w": 90,
       "h": 46,
-      "type": "text",
-      "value": "spellcastingAbility"
+      "type": "text"
     },
     {
       "id": "spellSaveDC",
@@ -838,8 +746,7 @@
       "y": 2677,
       "w": 90,
       "h": 46,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "spellAttackBonus",
@@ -847,8 +754,7 @@
       "y": 2677,
       "w": 90,
       "h": 46,
-      "type": "number",
-      "value": 10
+      "type": "number"
     },
     {
       "id": "cantrips1",
@@ -856,8 +762,7 @@
       "y": 2868,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips1"
+      "type": "text"
     },
     {
       "id": "cantrips2",
@@ -865,8 +770,7 @@
       "y": 2891,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips2"
+      "type": "text"
     },
     {
       "id": "cantrips3",
@@ -874,8 +778,7 @@
       "y": 2914,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips3"
+      "type": "text"
     },
     {
       "id": "cantrips4",
@@ -883,8 +786,7 @@
       "y": 2937,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips4"
+      "type": "text"
     },
     {
       "id": "cantrips5",
@@ -892,8 +794,7 @@
       "y": 2960,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips5"
+      "type": "text"
     },
     {
       "id": "cantrips6",
@@ -901,8 +802,7 @@
       "y": 2983,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips6"
+      "type": "text"
     },
     {
       "id": "cantrips7",
@@ -910,8 +810,7 @@
       "y": 3006,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips7"
+      "type": "text"
     },
     {
       "id": "cantrips8",
@@ -919,8 +818,7 @@
       "y": 3029,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "cantrips8"
+      "type": "text"
     },
     {
       "id": "spellLevel1Total",
@@ -928,8 +826,7 @@
       "y": 3102,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel1Expended",
@@ -937,8 +834,7 @@
       "y": 3104,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells1",
@@ -946,8 +842,7 @@
       "y": 3171,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells2",
@@ -955,8 +850,7 @@
       "y": 3194,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells3",
@@ -964,8 +858,7 @@
       "y": 3217,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells4",
@@ -973,8 +866,7 @@
       "y": 3240,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells5",
@@ -982,8 +874,7 @@
       "y": 3263,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells6",
@@ -991,8 +882,7 @@
       "y": 3286,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells7",
@@ -1000,8 +890,7 @@
       "y": 3309,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells8",
@@ -1009,8 +898,7 @@
       "y": 3332,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells9",
@@ -1018,8 +906,7 @@
       "y": 3355,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells10",
@@ -1027,8 +914,7 @@
       "y": 3378,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells10"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells11",
@@ -1036,8 +922,7 @@
       "y": 3401,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells11"
+      "type": "text"
     },
     {
       "id": "spellLevel1Spells12",
@@ -1045,8 +930,7 @@
       "y": 3424,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel1Spells12"
+      "type": "text"
     },
     {
       "id": "spellLevel2Total",
@@ -1054,8 +938,7 @@
       "y": 3476,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel2Expended",
@@ -1063,8 +946,7 @@
       "y": 3478,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells1",
@@ -1072,8 +954,7 @@
       "y": 3519,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells2",
@@ -1081,8 +962,7 @@
       "y": 3542,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells3",
@@ -1090,8 +970,7 @@
       "y": 3565,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells4",
@@ -1099,8 +978,7 @@
       "y": 3588,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells5",
@@ -1108,8 +986,7 @@
       "y": 3611,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells6",
@@ -1117,8 +994,7 @@
       "y": 3634,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells7",
@@ -1126,8 +1002,7 @@
       "y": 3657,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells8",
@@ -1135,8 +1010,7 @@
       "y": 3680,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells9",
@@ -1144,8 +1018,7 @@
       "y": 3703,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells10",
@@ -1153,8 +1026,7 @@
       "y": 3726,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells10"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells11",
@@ -1162,8 +1034,7 @@
       "y": 3749,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells11"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells12",
@@ -1171,8 +1042,7 @@
       "y": 3772,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells12"
+      "type": "text"
     },
     {
       "id": "spellLevel2Spells13",
@@ -1180,8 +1050,7 @@
       "y": 3795,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel2Spells13"
+      "type": "text"
     },
     {
       "id": "spellLevel3Total",
@@ -1189,8 +1058,7 @@
       "y": 2828,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel3Expended",
@@ -1198,8 +1066,7 @@
       "y": 2830,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells1",
@@ -1207,8 +1074,7 @@
       "y": 2870,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells2",
@@ -1216,8 +1082,7 @@
       "y": 2893,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells3",
@@ -1225,8 +1090,7 @@
       "y": 2916,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells4",
@@ -1234,8 +1098,7 @@
       "y": 2939,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells5",
@@ -1243,8 +1106,7 @@
       "y": 2962,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells6",
@@ -1252,8 +1114,7 @@
       "y": 2985,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells7",
@@ -1261,8 +1122,7 @@
       "y": 3008,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells8",
@@ -1270,8 +1130,7 @@
       "y": 3031,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells9",
@@ -1279,8 +1138,7 @@
       "y": 3054,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells10",
@@ -1288,8 +1146,7 @@
       "y": 3077,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells10"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells11",
@@ -1297,8 +1154,7 @@
       "y": 3100,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells11"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells12",
@@ -1306,8 +1162,7 @@
       "y": 3123,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells12"
+      "type": "text"
     },
     {
       "id": "spellLevel3Spells13",
@@ -1315,8 +1170,7 @@
       "y": 3146,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells13"
+      "type": "text"
     },
     {
       "id": "spellLevel4Total",
@@ -1324,8 +1178,7 @@
       "y": 3196,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel4Expended",
@@ -1333,8 +1186,7 @@
       "y": 3198,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells1",
@@ -1342,8 +1194,7 @@
       "y": 3239,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel3Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells2",
@@ -1351,8 +1202,7 @@
       "y": 3262,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells3",
@@ -1360,8 +1210,7 @@
       "y": 3285,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells4",
@@ -1369,8 +1218,7 @@
       "y": 3308,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells5",
@@ -1378,8 +1226,7 @@
       "y": 3331,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells6",
@@ -1387,8 +1234,7 @@
       "y": 3354,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells7",
@@ -1396,8 +1242,7 @@
       "y": 3377,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells8",
@@ -1405,8 +1250,7 @@
       "y": 3400,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells9",
@@ -1414,8 +1258,7 @@
       "y": 3423,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells10",
@@ -1423,8 +1266,7 @@
       "y": 3446,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells10"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells11",
@@ -1432,8 +1274,7 @@
       "y": 3469,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells11"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells12",
@@ -1441,8 +1282,7 @@
       "y": 3492,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells12"
+      "type": "text"
     },
     {
       "id": "spellLevel4Spells13",
@@ -1450,8 +1290,7 @@
       "y": 3515,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel4Spells13"
+      "type": "text"
     },
     {
       "id": "spellLevel5Total",
@@ -1459,8 +1298,7 @@
       "y": 3566,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel5Expended",
@@ -1468,8 +1306,7 @@
       "y": 3568,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells1",
@@ -1477,8 +1314,7 @@
       "y": 3612,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells2",
@@ -1486,8 +1322,7 @@
       "y": 3635,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells3",
@@ -1495,8 +1330,7 @@
       "y": 3658,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells4",
@@ -1504,8 +1338,7 @@
       "y": 3681,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells5",
@@ -1513,8 +1346,7 @@
       "y": 3704,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells6",
@@ -1522,8 +1354,7 @@
       "y": 3727,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells7",
@@ -1531,8 +1362,7 @@
       "y": 3750,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells8",
@@ -1540,8 +1370,7 @@
       "y": 3773,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel5Spells9",
@@ -1549,8 +1378,7 @@
       "y": 3796,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel5Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel6Total",
@@ -1558,8 +1386,7 @@
       "y": 2828,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel6Expended",
@@ -1567,8 +1394,7 @@
       "y": 2830,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells1",
@@ -1576,8 +1402,7 @@
       "y": 2872,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells2",
@@ -1585,8 +1410,7 @@
       "y": 2895,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells3",
@@ -1594,8 +1418,7 @@
       "y": 2918,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells4",
@@ -1603,8 +1426,7 @@
       "y": 2941,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells5",
@@ -1612,8 +1434,7 @@
       "y": 2964,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells6",
@@ -1621,8 +1442,7 @@
       "y": 2987,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells7",
@@ -1630,8 +1450,7 @@
       "y": 3010,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells8",
@@ -1639,8 +1458,7 @@
       "y": 3033,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel6Spells9",
@@ -1648,8 +1466,7 @@
       "y": 3056,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel6Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel7total",
@@ -1657,8 +1474,7 @@
       "y": 3105,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel7Expended",
@@ -1666,8 +1482,7 @@
       "y": 3107,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells1",
@@ -1675,8 +1490,7 @@
       "y": 3148,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells2",
@@ -1684,8 +1498,7 @@
       "y": 3171,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells3",
@@ -1693,8 +1506,7 @@
       "y": 3194,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells4",
@@ -1702,8 +1514,7 @@
       "y": 3217,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells5",
@@ -1711,8 +1522,7 @@
       "y": 3240,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells6",
@@ -1720,8 +1530,7 @@
       "y": 3263,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells7",
@@ -1729,8 +1538,7 @@
       "y": 3286,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells8",
@@ -1738,8 +1546,7 @@
       "y": 3309,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells8"
+      "type": "text"
     },
     {
       "id": "spellLevel7Spells9",
@@ -1747,8 +1554,7 @@
       "y": 3332,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel7Spells9"
+      "type": "text"
     },
     {
       "id": "spellLevel8Total",
@@ -1756,8 +1562,7 @@
       "y": 3383,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel8Expended",
@@ -1765,8 +1570,7 @@
       "y": 3385,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells1",
@@ -1774,8 +1578,7 @@
       "y": 3426,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells2",
@@ -1783,8 +1586,7 @@
       "y": 3449,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells3",
@@ -1792,8 +1594,7 @@
       "y": 3472,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells4",
@@ -1801,8 +1602,7 @@
       "y": 3495,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells5",
@@ -1810,8 +1610,7 @@
       "y": 3518,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells6",
@@ -1819,8 +1618,7 @@
       "y": 3541,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel8Spells7",
@@ -1828,8 +1626,7 @@
       "y": 3564,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel8Spells7"
+      "type": "text"
     },
     {
       "id": "spellLevel9total",
@@ -1837,8 +1634,7 @@
       "y": 3613,
       "w": 59,
       "h": 33,
-      "type": "text",
-      "value": "3/3"
+      "type": "text"
     },
     {
       "id": "spellLevel9Expended",
@@ -1846,8 +1642,7 @@
       "y": 3615,
       "w": 145,
       "h": 27,
-      "type": "text",
-      "value": "Expended"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells1",
@@ -1855,8 +1650,7 @@
       "y": 3658,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells1"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells2",
@@ -1864,8 +1658,7 @@
       "y": 3681,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells2"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells3",
@@ -1873,8 +1666,7 @@
       "y": 3704,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells3"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells4",
@@ -1882,8 +1674,7 @@
       "y": 3727,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells4"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells5",
@@ -1891,8 +1682,7 @@
       "y": 3750,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells5"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells6",
@@ -1900,8 +1690,7 @@
       "y": 3773,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells6"
+      "type": "text"
     },
     {
       "id": "spellLevel9Spells7",
@@ -1909,8 +1698,7 @@
       "y": 3796,
       "w": 250,
       "h": 20,
-      "type": "text",
-      "value": "spellLevel9Spells7"
+      "type": "text"
     }
   ]
 }

@@ -1,173 +1,165 @@
 import Styles from "./DND_Denik.module.css";
-import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { ne } from "@faker-js/faker";
 
+const LINE_HEIGHT = 1.2;
 
-export default function DND_Denik() {
-  const [editing, setEditing] = useState(true);
-  const [loading, setloading] = useState(true);
-    useEffect(() => {
-    fetch("/parnback.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const sheet = data;
-        loading = false;
-  }, []);
+function SafeSpan({ htmlString }) {
+  const match = htmlString.match(/<span(.*?)>(.*?)<\/span>/);
+  if (!match) return htmlString;
+
+  const attrsString = match[1].trim();
+  const attrs = {};
+
+  // Parse atributy
+  attrsString.replace(/(\w+)="(.*?)"/g, (_, key, value) => {
+    if (key === "style") {
+      // Převést style string na objekt
+      const styleObj = {};
+      value.split(";").forEach((pair) => {
+        const [prop, val] = pair.split(":");
+        if (prop && val) {
+          const camelProp = prop
+            .trim()
+            .replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+          styleObj[camelProp] = val.trim();
+        }
+      });
+      attrs.style = styleObj;
+    } else {
+      attrs[key] = value;
+    }
+  });
+
+  return <span {...attrs}>{match[2]}</span>;
+}
+
+function Field({ field, charId }) {
+  const fontSize = field.h < 50 ? field.h / LINE_HEIGHT : 10;
+  const lastValue = useRef(field.value ?? "");
+  const editableRef = useRef(null);
+
+  useEffect(() => {
+    if (editableRef.current) {
+      editableRef.current.innerText = field.value ?? "";
+    }
+  }, [field.value]);
+
+  const handleBlur = (e) => {
+    const newValue = e.target.innerText;
+    console.log(newValue);
+
+    // nic se nezměnilo → neposílej request
+    if (newValue === lastValue.current) return;
+
+    lastValue.current = newValue;
+
+    fetch(`/api/fields`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: charId,
+        nameOfField: field.id,
+        value: newValue,
+      }),
+    }).catch(console.error);
+  };
+
   return (
-    <div className="sheet-container">
-      {sheet.fields.map(field => (
-        <input
-          key={field.id}
-          type={field.type}
-          value={field.value}
-          /*onChange={(e) => updateField(field.id, e.target.value)}*/
-          className="field"
-          style={{
-            position: 'absolute',
-            top: field.top,
-            left: field.left,
-            width: field.width
-          }}
-        />
-      ))}
-    </div>
+    <foreignObject x={field.x} y={field.y} width={field.w} height={field.h}>
+      <div
+        ref={editableRef}
+        className={Styles.field}
+        contentEditable
+        suppressContentEditableWarning
+        spellCheck={false}
+        onBlur={handleBlur}
+        style={{
+          fontSize: `${fontSize}px`,
+          lineHeight: LINE_HEIGHT,
+        }}
+      >
+        {/*<SafeSpan htmlString={field.value} field.value/>*/}
+      </div>
+    </foreignObject>
   );
 }
 
-/*function DND_Denik() {
-  const [editing, setEditing] = useState(true);
-  const abilityNames = [
-    "strength",
-    "dexterity",
-    "constitution",
-    "intelligence",
-    "wisdom",
-    "charisma",
-  ];
+export default function DND_Denik() {
+  const { char } = useParams();
+
+  const [sheet, setSheet] = useState(null);
+  const [zoom, setZoom] = useState(1);
+
+  /* ---------------- FETCH ---------------- */
+
   useEffect(() => {
-    fetch("/parnback.json")
+    fetch(`/api/fields/${char}`)
       .then((res) => res.json())
-      .then((data) => {
-        for (const key of abilityNames) {
-          document.getElementById(key).value = data.ability[key];
-          document.getElementById(key + "Bonus").value = Math.floor(
-            (data.ability[key] - 10) / 2
-          );
-        }
-        document.getElementById("inspiration").value = data.inspiration;
-        document.getElementById("proficiency_bonus").value =
-          data.proficiency_bonus;
-      });
+      .then(setSheet)
+      .catch(console.error);
+  }, [char]);
+
+  /* ---------------- ZOOM ---------------- */
+
+  const handleWheel = useCallback((event) => {
+    if (!event.ctrlKey) return;
+
+    event.preventDefault();
+
+    setZoom((prev) => {
+      const next = prev - event.deltaY * 0.001;
+      return Math.min(Math.max(next, 0.3), 3);
+    });
   }, []);
 
+  /* ---------------- DISABLE BROWSER ZOOM ---------------- */
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.ctrlKey) e.preventDefault();
+    };
+
+    document.addEventListener("wheel", handler, { passive: false });
+    return () => document.removeEventListener("wheel", handler);
+  }, []);
+
+  /* ---------------- RENDER ---------------- */
+
+  if (!sheet) {
+    return <div className={Styles.loading}>Loading…</div>;
+  }
+
+  const { viewBox, fields } = sheet;
+
   return (
-    <div className={Styles.sheet}>
-      {/* LEFT COLUMN *//*}
-      <div className={Styles.leftColumn}>
-        <section className={Styles.abilityScores}>
-          {abilityNames.map((ability) => (
-            <div key={ability} className={Styles.ability}>
-              <label htmlFor={ability}>
-                {ability.charAt(0).toUpperCase() + ability.slice(1)}
-              </label>
-              <input id={ability + "Bonus"}></input>
-              <input id={ability}></input>
-            </div>
-          ))}
-        </section>
+    <div className={Styles.viewport} onWheel={handleWheel}>
+      <svg
+        className={Styles.svg}
+        viewBox={`0 0 ${viewBox.width} ${viewBox.height}`}
+        width="90vw"
+        style={{
+          transform: `scale(${zoom})`,
+          transformOrigin: "0 0",
+        }}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* BACKGROUND */}
+        <image
+          href="/src/assets/DnD-background.png"
+          x="0"
+          y="0"
+          width={viewBox.width}
+          height={viewBox.height}
+          preserveAspectRatio="xMinYMin meet"
+        />
 
-        <section className={Styles.abilityOther}>
-          <section className={Styles.inspiration}>
-            <input id="inspiration"></input>
-            <label htmlFor="inspiration">Inspiration</label>
-          </section>
-          <section className={Styles.proficiency_bonus}>
-            <input id="proficiency_bonus"></input>
-            <label htmlFor="proficiency_bonus">PROFICIENCY BONUS</label>
-          </section>
-
-          <section className={Styles.savingThrows}>
-            <div className={Styles.savingThrow}>
-              <input type="checkbox" id="strengthCheck"></input>Strength
-            </div>
-            <div className={Styles.savingThrow}>Dexterity</div>
-            <div className={Styles.savingThrow}>Constitution</div>
-            <div className={Styles.savingThrow}>Intelligence</div>
-            <div className={Styles.savingThrow}>Wisdom</div>
-            <div className={Styles.savingThrow}>Charisma</div>
-            <div>Saving Throws</div>
-          </section>
-
-          <section className={Styles.skills}>
-            <div className={Styles.skill}>Acrobatics</div>
-            <div className={Styles.skill}>Animal Handling</div>
-            <div className={Styles.skill}>Arcana</div>
-            <div className={Styles.skill}>Athletics</div>
-            <div className={Styles.skill}>Deception</div>
-            <div className={Styles.skill}>History</div>
-            <div className={Styles.skill}>Insight</div>
-            <div className={Styles.skill}>Intimidation</div>
-            <div className={Styles.skill}>Investigation</div>
-            <div className={Styles.skill}>Medicine</div>
-            <div className={Styles.skill}>Nature</div>
-            <div className={Styles.skill}>Perception</div>
-            <div className={Styles.skill}>Performance</div>
-            <div className={Styles.skill}>Persuasion</div>
-            <div className={Styles.skill}>Religion</div>
-            <div className={Styles.skill}>Sleight of Hand</div>
-            <div className={Styles.skill}>Stealth</div>
-            <div className={Styles.skill}>Survival</div>
-          </section>
-        </section>
-
-        <section className={Styles.passiveSection}>Passive Perception</section>
-
-        <section className={Styles.proficiencies}>
-          Proficiencies & Languages
-        </section>
-      </div>
-
-      {/* CENTER COLUMN *//*}
-      <div className={Styles.centerColumn}>
-        <section className={Styles.fancyBox}>
-          <section className={Styles.acInitSpeed}>
-            <div className={`${Styles.ac} ${Styles.box}`}>AC</div>
-            <div className={`${Styles.init} ${Styles.box}`}>Initiative</div>
-            <div className={`${Styles.speed} ${Styles.box}`}>Speed</div>
-          </section>
-
-          <section className={`${Styles.hitPoints} ${Styles.box}`}>
-            Hit Points
-          </section>
-
-          <section className={Styles.hitDeath}>
-            <div className={`${Styles.hitDice} ${Styles.box}`}>Hit Dice</div>
-            <div className={`${Styles.hitDice} ${Styles.box}`}>Death Saves</div>
-          </section>
-        </section>
-
-        <section className={`${Styles.attacksCenter} ${Styles.box}`}>
-          Attacks Table
-        </section>
-
-        <section className={Styles.attacksLeft}>Attacks & Spellcasting</section>
-
-        <section className={`${Styles.featuresTraits} ${Styles.box}`}>
-          Features & Traits
-        </section>
-      </div>
-
-      {/* RIGHT COLUMN *//*}
-      <div className={Styles.rightColumn}>
-        <section className={Styles.fancyBox}>
-          <section className={Styles.box}>Personality Traits</section>
-          <section className={Styles.box}>Ideals</section>
-          <section className={Styles.box}>Bonds</section>
-          <section className={Styles.box}>Flaws</section>
-        </section>
-        <section className={Styles.box}>FEATURES & TRAITS</section>
-      </div>
+        {/* FIELDS */}
+        {fields.map((field) => (
+          <Field key={field.id} field={field} charId={char} />
+        ))}
+      </svg>
     </div>
-  );*/
+  );
 }
-
-export default DND_Denik;

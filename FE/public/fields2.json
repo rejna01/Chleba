@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "id": "characterName",
+      "top": "10%",
+      "left": "5%",
+      "width": "40%",
+      "type": "text",
+      "label": "Character Name",
+      "value": "Aranis Moonshadow"
+    },
+    {
+      "id": "level",
+      "top": "12%",
+      "left": "62%",
+      "width": "10%",
+      "type": "number",
+      "value": 4
+    },
+    {
+      "id": "level2",
+      "top": "25%",
+      "left": "10%",
+      "width": "10%",
+      "type": "number",
+      "value": 6
+    }
+  ]
+}
