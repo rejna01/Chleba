@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import Styles from "./ImageField.module.css";
 
 export default function ImageField({ field, charId }) {
+  const [showConfirm, setShowConfirm] = useState(false);
   const [imageUrl, setImageUrl] = useState(field.value ?? null);
   const [uploading, setUploading] = useState(false);
   const [dragging, setDragging] = useState(false);
@@ -32,7 +33,7 @@ export default function ImageField({ field, charId }) {
 
   const handleDelete = async () => {
     try {
-      await fetch("/api/uploads", {
+      await fetch("/api/fileUpload/", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -45,6 +46,8 @@ export default function ImageField({ field, charId }) {
     } catch (err) {
       console.error(err);
     }
+
+  setShowConfirm(false);
   };
 
   // Drag & drop eventy
@@ -66,7 +69,7 @@ export default function ImageField({ field, charId }) {
           <img src={imageUrl} alt="" style={{ width: "100%", height: "100%" }} />
           <button
             className={Styles.removeImage}
-            onClick={handleDelete}
+            onClick={() => setShowConfirm(true)}
             title="Smazat obrázek"
           >
             ✕
@@ -92,6 +95,16 @@ export default function ImageField({ field, charId }) {
           />
         </div>
       )}
+      {showConfirm && (
+  <div className={Styles.modalBackdrop}>
+    <div className={Styles.modal}>
+      <p>Opravdu chceš smazat obrázek?</p>
+
+      <button onClick={handleDelete}>Ano</button>
+      <button onClick={() => setShowConfirm(false)}>Zrušit</button>
+    </div>
+  </div>
+)}
     </div>
   );
 };
