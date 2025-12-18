@@ -58,10 +58,13 @@ router.put("/", (req, res) => {
   if (!validFieldIds.has(nameOfField)) {
     return res.status(400).json({ error: "Neznámý field_name" });
   }
-
+  let storedValue = value;
+  if (!isNaN(value) && value !== "") {
+    storedValue = Number(value); // uloží jako number
+  }
   // INSERT OR REPLACE
   db.prepare(
-    "INSERT OR REPLACE INTO fields (entity_id, field_name, value) VALUES (?, ?, CAST(? AS INTEGER))"
+    "INSERT OR REPLACE INTO fields (entity_id, field_name, value) VALUES (?, ?, ?)"
   ).run(id, nameOfField, value);
 
   res.json({ success: true });

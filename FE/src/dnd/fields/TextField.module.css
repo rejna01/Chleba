@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../assets/fonts/Runewood-e9Lvp.ttf") format("truetype");
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.viewport {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+}
+.canvas {
+  position: relative;
+  width: 90vw; /* změna podle viewportu */
+  max-width: 1200px; /* volitelné omezení */
+}
+
+.canvas img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.canvas img {
+  width: 100%;
+  display: block;
+}
+
+.field {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #000;
+  text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
