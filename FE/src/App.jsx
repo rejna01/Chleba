@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 import Layout from "./layout/LayoutIndex";
 
@@ -12,9 +12,7 @@ function App() {
     <Routes>
       <Route path="dnd/:char" element={<DND_Denik />} />
       <Route path="dnd2" element={<DND_Help />} />
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-      </Route>
+      <Route path="/" element={<Navigate to="/dnd/dummy" replace />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

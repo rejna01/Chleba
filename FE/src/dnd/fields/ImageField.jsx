@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Styles from "./ImageField.module.css";
 
 export default function ImageField({ field, charId }) {
   const [imageUrl, setImageUrl] = useState(field.value ?? null);
   const [uploading, setUploading] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const fileInputRef = useRef(null);
 
-  const handleUpload = async (e) => {
-    const file = e.target.files?.[0];
+  const handleUploadFile = async (file) => {
     if (!file) return;
 
     const formData = new FormData();
@@ -16,14 +17,11 @@ export default function ImageField({ field, charId }) {
 
     try {
       setUploading(true);
-
       const res = await fetch("/api/fileUpload/image", {
         method: "POST",
         body: formData,
       });
-
       const data = await res.json();
-      // backend by měl vrátit URL nebo cestu k obrázku
       setImageUrl(data.url);
     } catch (err) {
       console.error(err);
@@ -43,32 +41,29 @@ export default function ImageField({ field, charId }) {
           value: "",
         }),
       });
-
       setImageUrl(null);
     } catch (err) {
       console.error(err);
     }
   };
 
+  // Drag & drop eventy
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    handleUploadFile(file);
+  };
+
+  const handleDragOver = (e) => e.preventDefault();
+  const handleDragEnter = () => setDragging(true);
+  const handleDragLeave = () => setDragging(false);
+
   return (
-    <div className={Styles.imageField}>
-      {!imageUrl ? (
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleUpload}
-          disabled={uploading}
-        />
-      ) : (
-        <div
-          className={Styles.imageWrapper}
-          style={{ width: "100%", height: "100%" }}
-        >
-          <img
-            src={imageUrl}
-            alt=""
-            style={{ width: "100%", height: "100%" }}
-          />
+    <div className={Styles.container}>
+      {imageUrl ? (
+        <div className={Styles.imageWrapper}>
+          <img src={imageUrl} alt="" style={{ width: "100%", height: "100%" }} />
           <button
             className={Styles.removeImage}
             onClick={handleDelete}
@@ -77,7 +72,26 @@ export default function ImageField({ field, charId }) {
             ✕
           </button>
         </div>
+      ) : (
+        <div
+          className={`${Styles.uploadBox} ${dragging ? Styles.dragging : ""}`}
+          onClick={() => fileInputRef.current.click()}
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragEnter={handleDragEnter}
+          onDragLeave={handleDragLeave}
+        >
+          <p>{uploading ? "Uploading..." : "Drag & drop image here or click to select"}</p>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleUploadFile(e.target.files?.[0])}
+            style={{ display: "none" }}
+            disabled={uploading}
+          />
+        </div>
       )}
     </div>
   );
-}
+};

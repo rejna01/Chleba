@@ -1,7 +1,7 @@
 import Styles from "./DND_Denik.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
-import Field from "./Field.jsx";
+import Field from "./fields/Field.jsx";
 
 export default function DND_Denik() {
   const { char } = useParams();

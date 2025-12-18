@@ -16,22 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/fields", fieldsRouter);
 app.use("/api/fileUpload", fileUploadRouter);
 
-// ===== DEV ONLY – statické soubory =====
-// V produkci tohle řeší nginx
-if (process.env.NODE_ENV !== "production") {
-  app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-}
-
-// ===== React build (SPA fallback) =====
-if (process.env.NODE_ENV === "production") {
-  const clientBuildPath = path.join(__dirname, "../client/build");
-
-  app.use(express.static(clientBuildPath));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(clientBuildPath, "index.html"));
-  });
-}
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ===== error handler (multer atd.) =====
 app.use((err, req, res, next) => {
