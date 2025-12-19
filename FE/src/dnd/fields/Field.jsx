@@ -4,7 +4,7 @@ import RadioCheckbox from "./RadioCheckbox.jsx";
 import TextField from "./TextField.jsx";
 import ImageField from "./ImageField.jsx";
 
-export default function Field({ field, charId }) {
+export default function Field({ field, charId, saveField, editable }) {
   return (
     <foreignObject x={field.x} y={field.y} width={field.w} height={field.h}>
       {field.type === "checkbox" && (
@@ -12,13 +12,16 @@ export default function Field({ field, charId }) {
         field={field} 
           charId={charId}
           id={field.id}
+          saveField={saveField}
+          editable={editable}
         />
       )}
 
-      {field.type === "img" && <ImageField field={field} charId={charId} />}
+      {field.type === "img" && <ImageField field={field} charId={charId} 
+          saveField={saveField} editable={editable}/>}
 
       {field.type !== "checkbox" && field.type !== "img" && (
-        <TextField field={field} charId={charId} id={field.id}/>
+        <TextField field={field} charId={charId} id={field.id} saveField={saveField} editable={editable} />
       )}
     </foreignObject>
   );

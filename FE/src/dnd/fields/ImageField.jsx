@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Styles from "./ImageField.module.css";
 
-export default function ImageField({ field, charId }) {
+export default function ImageField({ field, charId, editable }) {
   const [showConfirm, setShowConfirm] = useState(false);
   const [imageUrl, setImageUrl] = useState(field.value ?? null);
   const [uploading, setUploading] = useState(false);
@@ -67,22 +67,22 @@ export default function ImageField({ field, charId }) {
       {imageUrl ? (
         <div className={Styles.imageWrapper}>
           <img src={imageUrl} alt="" style={{ width: "100%", height: "100%" }} />
-          <button
+          {editable &&<button
             className={Styles.removeImage}
             onClick={() => setShowConfirm(true)}
             title="Smazat obrázek"
           >
             ✕
-          </button>
+          </button>} 
         </div>
       ) : (
         <div
           className={`${Styles.uploadBox} ${dragging ? Styles.dragging : ""}`}
           onClick={() => fileInputRef.current.click()}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragEnter={handleDragEnter}
-          onDragLeave={handleDragLeave}
+          onDrop={(e) => {if(!editable) return; handleDrop(e);}}
+          onDragOver={(e) => {if(!editable) return; handleDragOver(e)}}
+          onDragEnter={() => {if(!editable) return; handleDragEnter()}}
+          onDragLeave={() => {if(!editable) return; handleDragLeave()}}
         >
           <p>{uploading ? "Uploading..." : "Drag & drop image here or click to select"}</p>
           <input
@@ -91,7 +91,7 @@ export default function ImageField({ field, charId }) {
             accept="image/*"
             onChange={(e) => handleUploadFile(e.target.files?.[0])}
             style={{ display: "none" }}
-            disabled={uploading}
+            disabled={uploading || !editable}
           />
         </div>
       )}

@@ -1,7 +1,7 @@
 import Styles from "./RadioCheckbox.module.css";
 import { useState, useRef } from "react";
 
-export default function RadioCheckbox({ field, charId, id }) {
+export default function RadioCheckbox({ field, charId, id, saveField, editable }) {
   const [checkValue, setCheckValue] = useState(field.value?field.value:"0.0")
 
   const clickTimeout = useRef(null);
@@ -14,7 +14,7 @@ const toggleSingle = () => {
 
     const nextValue = checkValue === "1.0" ? "0.0" : "1.0";
     setCheckValue(nextValue);
-
+    saveField(id, nextValue);
     fetch(`/api/fields`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -33,16 +33,7 @@ const toggleSingle = () => {
 
     const nextValue = checkValue === "2.0" ? "0.0" : "2.0";
     setCheckValue(nextValue);
-
-    fetch(`/api/fields`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: charId,
-        nameOfField: id,
-        value: nextValue,
-      }),
-    }).catch(console.error);
+    saveField(id, nextValue);
   };
 
   return (
@@ -50,8 +41,8 @@ const toggleSingle = () => {
       className={Styles.radioCheckbox}
       role="checkbox"
       tabIndex={0}
-      onClick={toggleSingle}
-      onDoubleClick={toggleDouble}
+      onClick={() => {if(!editable) return; toggleSingle();}}
+      onDoubleClick={() => {if(!editable) return; toggleDouble();}}
     >
       <span className={Styles.customRadio} data-value={checkValue} />
     </div>

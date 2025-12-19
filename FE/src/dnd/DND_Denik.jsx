@@ -2,15 +2,84 @@ import Styles from "./DND_Denik.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Field from "./fields/Field.jsx";
+import Tools from "./Tools.jsx";
+
+function getModifier(stat) {
+  return Math.floor((stat - 10) / 2);
+}
+const derivedFields = [
+  // Ability modifiers
+  { fieldId: "strengthBonus", type: "modifier", base: "strength" },
+  { fieldId: "dexterityBonus", type: "modifier", base: "dexterity" },
+  { fieldId: "constitutionBonus", type: "modifier", base: "constitution" },
+  { fieldId: "intelligenceBonus", type: "modifier", base: "intelligence" },
+  { fieldId: "wisdomBonus", type: "modifier", base: "wisdom" },
+  { fieldId: "charismaBonus", type: "modifier", base: "charisma" },
+
+  // Saving throws
+  { fieldId: "savingThrowStrength", type: "savingThrow", mod: "strengthBonus", prof: "strengthCheckbox" },
+  { fieldId: "savingThrowDexterity", type: "savingThrow", mod: "dexterityBonus", prof: "dexterityCheckbox" },
+  { fieldId: "savingThrowConstitution", type: "savingThrow", mod: "constitutionBonus", prof: "constitutionCheckbox" },
+  { fieldId: "savingThrowIntelligence", type: "savingThrow", mod: "intelligenceBonus", prof: "intelligenceCheckbox" },
+  { fieldId: "savingThrowWisdom", type: "savingThrow", mod: "wisdomBonus", prof: "wisdomCheckbox" },
+  { fieldId: "savingThrowCharisma", type: "savingThrow", mod: "charismaBonus", prof: "charismaCheckbox" },
+
+  { fieldId: "acrobatics", type: "savingThrow", mod: "dexterityBonus", prof: "acrobaticsCheckbox" },
+  // Sem můžeš přidat další odvozená pole, např. initiative, passive perception atd.];
+];
 
 export default function DND_Denik() {
   const { char } = useParams();
 
   const [sheet, setSheet] = useState(null);
+  const [editable, setEditable] = useState(false);
   const [zoom, setZoom] = useState(1);
 
   const svgRef = useRef(null);
   const viewportRef = useRef(null);
+
+function calculate(sheet) {
+  if (!sheet) return sheet;
+
+  const profBonus = parseInt(sheet.fields.find(f => f.id === "proeficiencyBonus")?.value || "0", 10);
+
+  // 1️⃣ Spočítáme všechny modifikátory nejdříve
+  const tempFields = sheet.fields.map(field => {
+    const def = derivedFields.find(d => d.fieldId === field.id);
+    if (!def) return field;
+
+    if (def.type === "modifier") {
+      const baseValue = parseInt(sheet.fields.find(f => f.id === def.base)?.value || "10", 10);
+      return { ...field, value: getModifier(baseValue).toString() };
+    }
+    return field; // ostatní ponecháme na další krok
+  });
+
+  // 2️⃣ Spočítáme dependent fields (saving throws, skills…)
+  const newFields = tempFields.map(field => {
+    const def = derivedFields.find(d => d.fieldId === field.id);
+    if (!def || def.type === "modifier") return field;
+
+    switch (def.type) {
+      case "savingThrow": {
+        // vezmeme aktuální mod z právě dopočtených tempFields
+        const mod = parseInt(tempFields.find(f => f.id === def.mod)?.value || "0", 10);
+
+        // profMultiplier z pole (0.0, 1.0, 2.0)
+        const profMultiplier = parseFloat(tempFields.find(f => f.id === def.prof)?.value || "0");
+
+        const value = mod + Math.round(profMultiplier * profBonus);
+        return { ...field, value: value.toString() };
+      }
+
+      // sem můžeš přidat další dependent typy
+      default:
+        return field;
+    }
+  });
+
+  return { ...sheet, fields: newFields };
+}
 
   /* ---------------- FETCH ---------------- */
 
@@ -21,6 +90,28 @@ export default function DND_Denik() {
       .catch(console.error);
   }, [char]);
 
+  /* ---------------- FETCH ---------------- */
+
+function saveField(fieldId, newValue) {
+  setSheet(prev => ({
+    ...prev,
+    fields: prev.fields.map(field =>
+      field.id === fieldId
+        ? { ...field, value: newValue }
+        : field
+    )
+  }));
+
+  fetch(`/api/fields`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: char,
+      nameOfField: fieldId,
+      value: newValue,
+    }),
+  }).catch(console.error);
+}
   /* ---------------- ZOOM ---------------- */
 
   const handleWheel = useCallback((event) => {
@@ -83,9 +174,16 @@ export default function DND_Denik() {
 
         {/* FIELDS */}
         {fields.map((field) => (
-          <Field key={field.id} field={field} charId={char} />
+          <Field key={field.id} field={field} charId={char} saveField={saveField} editable={editable} />
         ))}
       </svg>
+      <Tools
+  tools={[
+    { label: "Editovat ", icon: "📝", onClick: () => setEditable(!editable)},
+    { label: "Dopočítat", icon: "📟", onClick: () => setSheet(prev => calculate(prev)) },
+    { label: editable?"Přestat editovat":"Editovat", icon: "📝", onClick: () => setEditable(!editable) },
+  ]}
+/>
     </div>
   );
 }

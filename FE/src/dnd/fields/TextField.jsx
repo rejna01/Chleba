@@ -4,7 +4,7 @@ import Styles from "./TextField.module.css";
 const LINE_HEIGHT = 1.2;
 const MIN_FONT_SIZE = 6;
 
-export default function TextField({ field, charId }) {
+export default function TextField({ field, charId, saveField, editable }) {
   const editableRef = useRef(null);
   const lastValue = useRef(field.value ?? "");
 
@@ -42,26 +42,17 @@ export default function TextField({ field, charId }) {
   };
 
   const handleBlur = (e) => {
+    saveField(field.id, e.target.innerText);
     const newValue = e.target.innerText;
     if (newValue === lastValue.current) return;
 
     lastValue.current = newValue;
-
-    fetch(`/api/fields`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        id: charId,
-        nameOfField: field.id,
-        value: newValue,
-      }),
-    }).catch(console.error);
   };
 
   return (
     <div
       ref={editableRef}
-      contentEditable
+      contentEditable = {editable}
       suppressContentEditableWarning
       spellCheck={false}
       onInput={handleInput}
