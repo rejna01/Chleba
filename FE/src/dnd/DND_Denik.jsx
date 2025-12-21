@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Field from "./fields/Field.jsx";
 import Tools from "./Tools.jsx";
+import Tooltip from "./fields/Tooltip.jsx";
 
 function getModifier(stat) {
   return Math.floor((stat - 10) / 2);
@@ -17,69 +18,223 @@ const derivedFields = [
   { fieldId: "charismaBonus", type: "modifier", base: "charisma" },
 
   // Saving throws
-  { fieldId: "savingThrowStrength", type: "savingThrow", mod: "strengthBonus", prof: "strengthCheckbox" },
-  { fieldId: "savingThrowDexterity", type: "savingThrow", mod: "dexterityBonus", prof: "dexterityCheckbox" },
-  { fieldId: "savingThrowConstitution", type: "savingThrow", mod: "constitutionBonus", prof: "constitutionCheckbox" },
-  { fieldId: "savingThrowIntelligence", type: "savingThrow", mod: "intelligenceBonus", prof: "intelligenceCheckbox" },
-  { fieldId: "savingThrowWisdom", type: "savingThrow", mod: "wisdomBonus", prof: "wisdomCheckbox" },
-  { fieldId: "savingThrowCharisma", type: "savingThrow", mod: "charismaBonus", prof: "charismaCheckbox" },
+  {
+    fieldId: "savingThrowStrength",
+    type: "savingThrow",
+    mod: "strengthBonus",
+    prof: "strengthCheckbox",
+  },
+  {
+    fieldId: "savingThrowDexterity",
+    type: "savingThrow",
+    mod: "dexterityBonus",
+    prof: "dexterityCheckbox",
+  },
+  {
+    fieldId: "savingThrowConstitution",
+    type: "savingThrow",
+    mod: "constitutionBonus",
+    prof: "constitutionCheckbox",
+  },
+  {
+    fieldId: "savingThrowIntelligence",
+    type: "savingThrow",
+    mod: "intelligenceBonus",
+    prof: "intelligenceCheckbox",
+  },
+  {
+    fieldId: "savingThrowWisdom",
+    type: "savingThrow",
+    mod: "wisdomBonus",
+    prof: "wisdomCheckbox",
+  },
+  {
+    fieldId: "savingThrowCharisma",
+    type: "savingThrow",
+    mod: "charismaBonus",
+    prof: "charismaCheckbox",
+  },
 
-  { fieldId: "acrobatics", type: "savingThrow", mod: "dexterityBonus", prof: "acrobaticsCheckbox" },
+  {
+    fieldId: "acrobatics",
+    type: "savingThrow",
+    mod: "dexterityBonus",
+    prof: "acrobaticsCheckbox",
+  },
+  {
+    fieldId: "animalHandling",
+    type: "savingThrow",
+    mod: "wisdomBonus",
+    prof: "animalHandlingCheckbox",
+  },
+  {
+    fieldId: "arcana",
+    type: "savingThrow",
+    mod: "intelligenceBonus",
+    prof: "arcanaCheckbox",
+  },
+  {
+    fieldId: "athletics",
+    type: "savingThrow",
+    mod: "strengthBonus",
+    prof: "athleticsCheckbox",
+  },
+  {
+    fieldId: "deception",
+    type: "savingThrow",
+    mod: "charismaBonus",
+    prof: "deceptionCheckbox",
+  },
+  {
+    fieldId: "history",
+    type: "savingThrow",
+    mod: "intelligenceBonus",
+    prof: "historyCheckbox",
+  },
+  {
+    fieldId: "insight",
+    type: "savingThrow",
+    mod: "wisdomBonus",
+    prof: "insightCheckbox",
+  },
+  {
+    fieldId: "intimidation",
+    type: "savingThrow",
+    mod: "charismaBonus",
+    prof: "intimidationCheckbox",
+  },
+  {
+    fieldId: "investigation",
+    type: "savingThrow",
+    mod: "intelligenceBonus",
+    prof: "investigationCheckbox",
+  },
+  {
+    fieldId: "medicine",
+    type: "savingThrow",
+    mod: "wisdomBonus",
+    prof: "medicineCheckbox",
+  },
+  {
+    fieldId: "nature",
+    type: "savingThrow",
+    mod: "intelligenceBonus",
+    prof: "natureCheckbox",
+  },
+  {
+    fieldId: "perception",
+    type: "savingThrow",
+    mod: "wisdomBonus",
+    prof: "perceptionCheckbox",
+  },
+  {
+    fieldId: "performance",
+    type: "savingThrow",
+    mod: "charismaBonus",
+    prof: "performanceCheckbox",
+  },
+  {
+    fieldId: "persuasion",
+    type: "savingThrow",
+    mod: "charismaBonus",
+    prof: "persuasionCheckbox",
+  },
+  {
+    fieldId: "religion",
+    type: "savingThrow",
+    mod: "intelligenceBonus",
+    prof: "religionCheckbox",
+  },
+  {
+    fieldId: "sleightOfHand",
+    type: "savingThrow",
+    mod: "dexterityBonus",
+    prof: "sleightOfHandCheckbox",
+  },
+  {
+    fieldId: "stealth",
+    type: "savingThrow",
+    mod: "dexterityBonus",
+    prof: "stealthCheckbox",
+  },
+  {
+    fieldId: "survival",
+    type: "savingThrow",
+    mod: "wisdomBonus",
+    prof: "survivalCheckbox",
+  },
   // Sem můžeš přidat další odvozená pole, např. initiative, passive perception atd.];
 ];
 
 export default function DND_Denik() {
+  const [spellsXPHB, setSpellsXPHB] = useState();
   const { char } = useParams();
 
   const [sheet, setSheet] = useState(null);
-  const [editable, setEditable] = useState(false);
+  const [editable, setEditable] = useState(true);
   const [zoom, setZoom] = useState(1);
 
   const svgRef = useRef(null);
   const viewportRef = useRef(null);
 
-function calculate(sheet) {
-  if (!sheet) return sheet;
+  const [tooltip, setTooltip] = useState(false);
+  const [tooltipSpell, setTooltipSpell] = useState(null);
 
-  const profBonus = parseInt(sheet.fields.find(f => f.id === "proeficiencyBonus")?.value || "0", 10);
+  function calculate(sheet) {
+    if (!sheet) return sheet;
 
-  // 1️⃣ Spočítáme všechny modifikátory nejdříve
-  const tempFields = sheet.fields.map(field => {
-    const def = derivedFields.find(d => d.fieldId === field.id);
-    if (!def) return field;
+    const profBonus = parseInt(
+      sheet.fields.find((f) => f.id === "proeficiencyBonus")?.value || "0",
+      10
+    );
 
-    if (def.type === "modifier") {
-      const baseValue = parseInt(sheet.fields.find(f => f.id === def.base)?.value || "10", 10);
-      return { ...field, value: getModifier(baseValue).toString() };
-    }
-    return field; // ostatní ponecháme na další krok
-  });
+    // 1️⃣ Spočítáme všechny modifikátory nejdříve
+    const tempFields = sheet.fields.map((field) => {
+      const def = derivedFields.find((d) => d.fieldId === field.id);
+      if (!def) return field;
 
-  // 2️⃣ Spočítáme dependent fields (saving throws, skills…)
-  const newFields = tempFields.map(field => {
-    const def = derivedFields.find(d => d.fieldId === field.id);
-    if (!def || def.type === "modifier") return field;
-
-    switch (def.type) {
-      case "savingThrow": {
-        // vezmeme aktuální mod z právě dopočtených tempFields
-        const mod = parseInt(tempFields.find(f => f.id === def.mod)?.value || "0", 10);
-
-        // profMultiplier z pole (0.0, 1.0, 2.0)
-        const profMultiplier = parseFloat(tempFields.find(f => f.id === def.prof)?.value || "0");
-
-        const value = mod + Math.round(profMultiplier * profBonus);
-        return { ...field, value: value.toString() };
+      if (def.type === "modifier") {
+        const baseValue = parseInt(
+          sheet.fields.find((f) => f.id === def.base)?.value || "10",
+          10
+        );
+        saveField(field.id, getModifier(baseValue).toString());
+        return { ...field, value: getModifier(baseValue).toString() };
       }
+      return field; // ostatní ponecháme na další krok
+    });
 
-      // sem můžeš přidat další dependent typy
-      default:
-        return field;
-    }
-  });
+    // 2️⃣ Spočítáme dependent fields (saving throws, skills…)
+    const newFields = tempFields.map((field) => {
+      const def = derivedFields.find((d) => d.fieldId === field.id);
+      if (!def || def.type === "modifier") return field;
 
-  return { ...sheet, fields: newFields };
-}
+      switch (def.type) {
+        case "savingThrow": {
+          // vezmeme aktuální mod z právě dopočtených tempFields
+          const mod = parseInt(
+            tempFields.find((f) => f.id === def.mod)?.value || "0",
+            10
+          );
+
+          // profMultiplier z pole (0.0, 1.0, 2.0)
+          const profMultiplier = parseFloat(
+            tempFields.find((f) => f.id === def.prof)?.value || "0"
+          );
+
+          const value = mod + Math.round(profMultiplier * profBonus);
+          saveField(field.id, value.toString());
+          return { ...field, value: value.toString() };
+        }
+
+        // sem můžeš přidat další dependent typy
+        default:
+          return field;
+      }
+    });
+
+    return { ...sheet, fields: newFields };
+  }
 
   /* ---------------- FETCH ---------------- */
 
@@ -90,28 +245,34 @@ function calculate(sheet) {
       .catch(console.error);
   }, [char]);
 
+  useEffect(() => {
+    fetch(`/spells-xphb.json`)
+      .then((res) => res.json())
+      .then(setSpellsXPHB)
+      .catch(console.error);
+  }, []);
+
   /* ---------------- FETCH ---------------- */
 
-function saveField(fieldId, newValue) {
-  setSheet(prev => ({
-    ...prev,
-    fields: prev.fields.map(field =>
-      field.id === fieldId
-        ? { ...field, value: newValue }
-        : field
-    )
-  }));
+  function saveField(fieldId, newValue) {
+    console.log("Saving field", fieldId, "with value", newValue);
+    setSheet((prev) => ({
+      ...prev,
+      fields: prev.fields.map((field) =>
+        field.id === fieldId ? { ...field, value: newValue } : field
+      ),
+    }));
 
-  fetch(`/api/fields`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      id: char,
-      nameOfField: fieldId,
-      value: newValue,
-    }),
-  }).catch(console.error);
-}
+    fetch(`/api/fields`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: char,
+        nameOfField: fieldId,
+        value: newValue,
+      }),
+    }).catch(console.error);
+  }
   /* ---------------- ZOOM ---------------- */
 
   const handleWheel = useCallback((event) => {
@@ -143,7 +304,7 @@ function saveField(fieldId, newValue) {
   }, [zoom]);*/
   /* ---------------- RENDER ---------------- */
 
-  if (!sheet) {
+  if (!sheet || !spellsXPHB) {
     return <div className={Styles.loading}>Loading…</div>;
   }
 
@@ -174,16 +335,38 @@ function saveField(fieldId, newValue) {
 
         {/* FIELDS */}
         {fields.map((field) => (
-          <Field key={field.id} field={field} charId={char} saveField={saveField} editable={editable} />
+          <Field
+            key={field.id}
+            field={field}
+            charId={char}
+            saveField={saveField}
+            editable={editable}
+            spellsXPHB={spellsXPHB}
+            setTooltip={setTooltip}
+            setTooltipSpell={setTooltipSpell}
+          />
         ))}
       </svg>
       <Tools
-  tools={[
-    { label: "Editovat ", icon: "📝", onClick: () => setEditable(!editable)},
-    { label: "Dopočítat", icon: "📟", onClick: () => setSheet(prev => calculate(prev)) },
-    { label: editable?"Přestat editovat":"Editovat", icon: "📝", onClick: () => setEditable(!editable) },
-  ]}
-/>
+        tools={[
+          {
+            label: "Dopočítat",
+            icon: "📟",
+            onClick: () => setSheet((prev) => calculate(prev)),
+          },
+          {
+            label: editable ? "Zakázat editaci" : "Povolit editaci",
+            icon: "📝",
+            onClick: () => setEditable(!editable),
+          },
+          {
+            label: "5e.tools",
+            icon: "🔗",
+            onClick: () => window.open("https://5e.tools", "_blank"),
+          },
+        ]}
+      />
+      {tooltip && <Tooltip spell={tooltipSpell}></Tooltip>}
     </div>
   );
 }

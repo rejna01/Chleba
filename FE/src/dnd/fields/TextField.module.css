@@ -39,10 +39,32 @@ body {
   border: 1px solid #ccc;
   color: #000;
   text-align: center;
+  white-space: nowrap; /* zabrání zalomení */
+  overflow: hidden; /* schová přetečení */
+}
+.field:focus {
+  outline: none;
+  border: 1px solid #141414 !important;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  font-size: 1rem;
+  background: transparent;
+  text-align: center;
+  cursor: "default";
+  border: 1px solid #ccc;
 }

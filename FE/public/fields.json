@@ -5,15 +5,6 @@
   },
   "fields": [
     {
-      "id": "characterName",
-      "x": 95,
-      "y": 100,
-      "w": 226,
-      "h": 40,
-      "type": "text",
-      "value": "ParnDark"
-    },
-    {
       "id": "strengthCheckbox",
       "x": 166,
       "y": 340,
