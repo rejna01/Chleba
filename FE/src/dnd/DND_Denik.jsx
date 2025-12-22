@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Field from "./fields/Field.jsx";
 import Tools from "./Tools.jsx";
-import Tooltip from "./fields/Tooltip.jsx";
+import Tooltip from "./tooltips/Tooltip.jsx";
 
 function getModifier(stat) {
   return Math.floor((stat - 10) / 2);
@@ -178,7 +178,7 @@ export default function DND_Denik() {
   const viewportRef = useRef(null);
 
   const [tooltip, setTooltip] = useState(false);
-  const [tooltipSpell, setTooltipSpell] = useState(null);
+  const [tooltipEntity, setTooltipEntity] = useState(null);
 
   function calculate(sheet) {
     if (!sheet) return sheet;
@@ -343,7 +343,7 @@ export default function DND_Denik() {
             editable={editable}
             spellsXPHB={spellsXPHB}
             setTooltip={setTooltip}
-            setTooltipSpell={setTooltipSpell}
+            setTooltipEntity={setTooltipEntity}
           />
         ))}
       </svg>
@@ -366,7 +366,7 @@ export default function DND_Denik() {
           },
         ]}
       />
-      {tooltip && <Tooltip spell={tooltipSpell}></Tooltip>}
+      {tooltip && <Tooltip entity={tooltipEntity}></Tooltip>}
     </div>
   );
 }

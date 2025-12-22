@@ -1,47 +1,95 @@
 import { useEffect, useRef, useState } from "react";
 import Styles from "./TextField.module.css";
+import { SPELL_MATCHERS } from "./spellMatcher";
+import { ITEM_MATCHERS } from "./itemMatcher";
+import { FEAT_MATCHERS } from "./featMatcher";
 
 const LINE_HEIGHT = 1.2;
 const MIN_FONT_SIZE = 6;
 
-function findSpellByName(data, name) {
-  if (!data || !Array.isArray(data.spell)) return null;
-  return data.spell.find((spell) => spell.name === name) || null;
-}
+// parseTextWithSpells – rozdělí text na části a obalí spell názvy
+function parseTextWithSpells(text, matchers, setTooltip, setTooltipEntity) {
+  console.log("Parsing text for tooltips:", text);
+  let parts = [{ text, entity: null }];
 
-function AddTooltip({ data, text, setTooltip, setTooltipSpell }) {
-  const spell = findSpellByName(data, text);
-  if (!spell) return <span>{text}</span>;
-  return (
-    <span
-      onMouseEnter={() => {
-        setTooltip(true);
-        setTooltipSpell(spell);
-      }}
-      onMouseLeave={() => setTooltip(false)}
-    >
-      {text}
-    </span>
+  matchers.forEach(({ regex, ...entity }) => {
+    const newParts = [];
+
+    parts.forEach((part) => {
+      if (part.entity) {
+        newParts.push(part);
+        return;
+      }
+
+      let lastIndex = 0;
+      let match;
+      while ((match = regex.exec(part.text)) !== null) {
+        if (match.index > lastIndex) {
+          newParts.push({
+            text: part.text.slice(lastIndex, match.index),
+            entity: null,
+          });
+        }
+        newParts.push({ text: match[0], entity });
+        lastIndex = match.index + match[0].length;
+      }
+
+      if (lastIndex < part.text.length) {
+        newParts.push({ text: part.text.slice(lastIndex), entity: null });
+      }
+    });
+
+    parts = newParts;
+  });
+  return parts.map((part, i) =>
+    part.entity ? (
+      <span
+        key={i}
+        className={Styles.hover}
+        onMouseEnter={() => {
+          setTooltip(true);
+          setTooltipEntity(part.entity);
+        }}
+        onMouseLeave={() => setTooltip(false)}
+      >
+        {part.text}
+      </span>
+    ) : (
+      <span style={{ whiteSpace: "pre-wrap" }} key={`plain-${i}`}>
+        {part.text}
+      </span>
+    )
   );
 }
 
+// AddTooltip – využívá parseTextWithSpells a globální SPELL_MATCHERS
+function AddTooltip({ text, matchers, setTooltip, setTooltipEntity }) {
+  if (!text || !matchers || matchers.length === 0) return <span>{text}</span>;
+
+  return (
+    <>{parseTextWithSpells(text, matchers, setTooltip, setTooltipEntity)}</>
+  );
+}
+
+// TextField komponenta
 export default function TextField({
   field,
   saveField,
   editable,
-  spellsXPHB,
   setTooltip,
-  setTooltipSpell,
+  setTooltipEntity,
 }) {
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(true);
   const [fontSize, setFontSize] = useState(field.h < 50 ? field.h / 1.2 : 12);
-
+  const oneLiner = field.h < 50;
   const editableRef = useRef(null);
   const tooltipRef = useRef(null);
   const lastValue = useRef(field.value ?? "");
 
+  const allMatchers = [...SPELL_MATCHERS, ...ITEM_MATCHERS, ...FEAT_MATCHERS]; //- Dodělat itemy později
+
   const adjustFontSize = (el) => {
-    if (!el) return;
+    if (!el || !oneLiner) return;
 
     let min = MIN_FONT_SIZE;
     let max = field.h < 50 ? field.h / 1.2 : 12;
@@ -71,7 +119,7 @@ export default function TextField({
 
   const adjustEditingFontSize = (e) => {
     const el = e.target;
-    if (!el || el.innerText === lastValue.current) return;
+    if (!el || el.innerText === lastValue.current || !oneLiner) return;
     adjustFontSize(el);
   };
 
@@ -95,7 +143,7 @@ export default function TextField({
   }, [field.value]);
 
   const handleBlur = (e) => {
-    setEditing(false);
+    //setEditing(false);
     const newValue = e.currentTarget.innerText;
     if (newValue !== lastValue.current) {
       saveField(field.id, newValue);
@@ -140,10 +188,10 @@ export default function TextField({
           }}
         >
           <AddTooltip
-            data={spellsXPHB}
             text={field.value ?? ""}
+            matchers={allMatchers}
             setTooltip={setTooltip}
-            setTooltipSpell={setTooltipSpell}
+            setTooltipEntity={setTooltipEntity}
           />
         </div>
       )}

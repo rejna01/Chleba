@@ -1,8 +1,9 @@
 .card {
+  font-family: "MyFont";
   position: fixed;
   bottom: 16px;
   right: 16px;
-  width: 250px;
+  width: 400px;
   max-height: 400px;
   overflow-y: auto;
   border: 1px solid #555; /* tmavší hranice */

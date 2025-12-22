@@ -11,7 +11,7 @@ export default function Field({
   editable,
   spellsXPHB,
   setTooltip,
-  setTooltipSpell,
+  setTooltipEntity,
 }) {
   return (
     <>
@@ -44,7 +44,7 @@ export default function Field({
             editable={editable}
             spellsXPHB={spellsXPHB}
             setTooltip={setTooltip}
-            setTooltipSpell={setTooltipSpell}
+            setTooltipEntity={setTooltipEntity}
           />
         )}
       </foreignObject>
