@@ -1,3 +1,4 @@
+import { renderEntry } from "./entryRenderer";
 import Styles from "./Tooltip.module.css";
 
 function formatPrerequisite(prereq) {
@@ -11,6 +12,7 @@ function formatPrerequisite(prereq) {
 }
 
 export default function FeatTooltip({ feat }) {
+  console.log("Rendering FeatTooltip for feat:", feat); // Debug log
   return (
     <div className={`${Styles.card} ${Styles.feat}`}>
       <div className={Styles.header}>
@@ -31,6 +33,13 @@ export default function FeatTooltip({ feat }) {
         )}
       </div>
 
+<div className={Styles.entries}>
+  {feat.entries?.map((entry, idx) => renderEntry(entry, idx))}
+</div>
+    </div>
+  );
+}
+/*
       <div className={Styles.entries}>
         {feat.entries.map((entry, idx) =>
           typeof entry === "string" ? (
@@ -44,7 +53,4 @@ export default function FeatTooltip({ feat }) {
             </div>
           )
         )}
-      </div>
-    </div>
-  );
-}
+      </div>*/

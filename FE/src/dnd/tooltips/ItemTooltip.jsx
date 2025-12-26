@@ -1,3 +1,4 @@
+import { renderEntry } from "./entryRenderer";
 import Styles from "./Tooltip.module.css";
 
 export default function ItemTooltip({ item }) {
@@ -20,11 +21,9 @@ export default function ItemTooltip({ item }) {
         )}
       </div>
 
-      <div className={Styles.entries}>
-        {item.entries.map((e, i) => (
-          <p key={i}>{e}</p>
-        ))}
-      </div>
+<div className={Styles.entries}>
+  {item.entries?.map((entry, idx) => renderEntry(entry, idx))}
+</div>
     </div>
   );
 }

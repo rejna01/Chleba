@@ -255,7 +255,6 @@ export default function DND_Denik() {
   /* ---------------- FETCH ---------------- */
 
   function saveField(fieldId, newValue) {
-    console.log("Saving field", fieldId, "with value", newValue);
     setSheet((prev) => ({
       ...prev,
       fields: prev.fields.map((field) =>

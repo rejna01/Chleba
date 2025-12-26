@@ -3,13 +3,25 @@ import Styles from "./TextField.module.css";
 import { SPELL_MATCHERS } from "./spellMatcher";
 import { ITEM_MATCHERS } from "./itemMatcher";
 import { FEAT_MATCHERS } from "./featMatcher";
+import { BACKGROUND_MATCHERS } from "./backgroundMatcher";
+import { RACE_MATCHERS } from "./raceMatcher";
 
 const LINE_HEIGHT = 1.2;
 const MIN_FONT_SIZE = 6;
 
 // parseTextWithSpells – rozdělí text na části a obalí spell názvy
 function parseTextWithSpells(text, matchers, setTooltip, setTooltipEntity) {
-  console.log("Parsing text for tooltips:", text);
+const [tooltipLocked, setTooltipLocked] = useState(false);
+  useEffect(() => {
+  const handleClickOutside = () => {
+    setTooltipLocked(false);
+    setTooltip(false);
+    setTooltipEntity(null);
+  };
+
+  document.addEventListener("click", handleClickOutside);
+  return () => document.removeEventListener("click", handleClickOutside);
+}, []);
   let parts = [{ text, entity: null }];
 
   matchers.forEach(({ regex, ...entity }) => {
@@ -46,11 +58,21 @@ function parseTextWithSpells(text, matchers, setTooltip, setTooltipEntity) {
       <span
         key={i}
         className={Styles.hover}
+        onContextMenu={(e) => {
+          console.log("RMB clicked");
+          e.preventDefault(); // zruší defaultní RMB menu
+          //setTooltipLocked(!tooltipLocked);
+          setTooltip(true);
+          setTooltipEntity(part.entity);
+        }}
         onMouseEnter={() => {
           setTooltip(true);
           setTooltipEntity(part.entity);
         }}
-        onMouseLeave={() => setTooltip(false)}
+        onMouseLeave={() => {
+          if (tooltipLocked) return;
+          setTooltip(false)
+        }}
       >
         {part.text}
       </span>
@@ -79,14 +101,14 @@ export default function TextField({
   setTooltip,
   setTooltipEntity,
 }) {
-  const [editing, setEditing] = useState(true);
+  const [editing, setEditing] = useState(false);
   const [fontSize, setFontSize] = useState(field.h < 50 ? field.h / 1.2 : 12);
   const oneLiner = field.h < 50;
   const editableRef = useRef(null);
   const tooltipRef = useRef(null);
   const lastValue = useRef(field.value ?? "");
 
-  const allMatchers = [...SPELL_MATCHERS, ...ITEM_MATCHERS, ...FEAT_MATCHERS]; //- Dodělat itemy později
+  const allMatchers = [...SPELL_MATCHERS, ...ITEM_MATCHERS, ...FEAT_MATCHERS, ...BACKGROUND_MATCHERS, ...RACE_MATCHERS]; //- Dodělat itemy později
 
   const adjustFontSize = (el) => {
     if (!el || !oneLiner) return;
@@ -116,6 +138,12 @@ export default function TextField({
     el.style.fontSize = `${bestSize}px`;
     setFontSize(bestSize);
   };
+  const handleKeyDown = (e) => {
+  if (e.key === "Enter") {
+    document.execCommand("insertLineBreak");
+    e.preventDefault();
+  }
+};
 
   const adjustEditingFontSize = (e) => {
     const el = e.target;
@@ -143,7 +171,7 @@ export default function TextField({
   }, [field.value]);
 
   const handleBlur = (e) => {
-    //setEditing(false);
+    setEditing(false);
     const newValue = e.currentTarget.innerText;
     if (newValue !== lastValue.current) {
       saveField(field.id, newValue);
@@ -164,6 +192,7 @@ export default function TextField({
           suppressContentEditableWarning
           onBlur={handleBlur}
           className={Styles.field}
+          onKeyDown={handleKeyDown}
           onInput={adjustEditingFontSize}
           style={{
             textAlign: field.type === "number" ? "center" : "left",

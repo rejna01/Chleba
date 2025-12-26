@@ -40,8 +40,8 @@ body {
   border: 1px solid #ccc;
   color: #000;
   text-align: center;
-  white-space: pre-wrap; /* zabrání zalomení */
-  overflow: hidden; /* schová přetečení */
+  white-space: pre-wrap;
+  overflow: hidden;
 }
 .field:focus {
   outline: none;

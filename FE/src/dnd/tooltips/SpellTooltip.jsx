@@ -1,4 +1,6 @@
+import { renderEntry } from "./entryRenderer";
 import Styles from "./Tooltip.module.css";
+
 
 export default function SpellTooltip({ spell }) {
   return (
@@ -43,9 +45,11 @@ export default function SpellTooltip({ spell }) {
       </div>
 
       <div className={Styles.entries}>
-        {spell.entries.map((e, i) => (
-          <p key={i}>{e}</p>
-        ))}
+  {spell.entries.map((e, i) => (
+    <div key={i}>
+      {renderEntry(e)}
+    </div>
+  ))}
 
         {spell.entriesHigherLevel?.map((h, i) => (
           <div key={i} className={Styles.higherLevel}>
