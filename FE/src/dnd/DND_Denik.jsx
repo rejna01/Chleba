@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Field from "./fields/Field.jsx";
 import Tools from "./Tools.jsx";
 import Tooltip from "./tooltips/Tooltip.jsx";
+import Notes from "./notes/Notes.jsx";
 
 function getModifier(stat) {
   return Math.floor((stat - 10) / 2);
@@ -180,6 +181,8 @@ export default function DND_Denik() {
   const [tooltip, setTooltip] = useState(false);
   const [tooltipEntity, setTooltipEntity] = useState(null);
 
+  const [notes, setNotes] = useState(false);
+
   function calculate(sheet) {
     if (!sheet) return sheet;
 
@@ -251,7 +254,11 @@ export default function DND_Denik() {
       .then(setSpellsXPHB)
       .catch(console.error);
   }, []);
+  useEffect(() => {
+    if (!sheet) return;
 
+    document.title = "DnD deník: " + sheet.id;
+  }, [sheet]);
   /* ---------------- FETCH ---------------- */
 
   function saveField(fieldId, newValue) {
@@ -363,9 +370,15 @@ export default function DND_Denik() {
             icon: "🔗",
             onClick: () => window.open("https://5e.tools", "_blank"),
           },
+          {
+            label: "Poznámky",
+            icon: "🗒️",
+            onClick: () => setNotes(true),
+          },
         ]}
       />
       {tooltip && <Tooltip entity={tooltipEntity}></Tooltip>}
+      {notes && <Notes notes={notes} setNotes={setNotes} editable={editable} />}
     </div>
   );
 }
