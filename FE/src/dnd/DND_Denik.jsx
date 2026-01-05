@@ -166,6 +166,18 @@ const derivedFields = [
   },
   // Sem můžeš přidat další odvozená pole, např. initiative, passive perception atd.];
 ];
+function generateId() {
+  const now = new Date();
+  const pad = (n) => n.toString().padStart(2, "0");
+  const datetime = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(
+    now.getDate()
+  )}${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+  const letters = Array.from({ length: 4 }, () =>
+    Math.floor(Math.random() * 16).toString(16)
+  ).join("");
+
+  return `id_${datetime}_${letters}`;
+}
 
 export default function DND_Denik() {
   const [spellsXPHB, setSpellsXPHB] = useState();
@@ -181,7 +193,11 @@ export default function DND_Denik() {
   const [tooltip, setTooltip] = useState(false);
   const [tooltipEntity, setTooltipEntity] = useState(null);
 
-  const [notes, setNotes] = useState(false);
+  const [notes, setNotes] = useState([]);
+  const [allNotes, setAllNotes] = useState([
+    { title: "note1", id: 1 },
+    { title: "note2", id: 2 },
+  ]);
 
   function calculate(sheet) {
     if (!sheet) return sheet;
@@ -237,6 +253,39 @@ export default function DND_Denik() {
     });
 
     return { ...sheet, fields: newFields };
+  }
+
+  function onOpen(noteId, instanceId) {
+    console.log("open note", noteId, " - ", instanceId);
+    setNotes((prevNotes) =>
+      prevNotes.map((note) =>
+        note.instanceId === instanceId
+          ? {
+              instanceId: instanceId,
+              title: "note" + noteId,
+              content:
+                "This is my " + (noteId == 1 ? "first" : "second") + " note.",
+              position: { x: 100, y: 100 },
+              size: { width: 200, height: 150 },
+              pageNumber: 5,
+            }
+          : note
+      )
+    );
+  }
+
+  function onClose(noteId) {
+    setNotes((prevNotes) =>
+      prevNotes.filter((note) => note.instanceId !== noteId)
+    );
+  }
+  function addNote() {
+    setNotes((prevNotes) => [
+      ...prevNotes,
+      {
+        instanceId: generateId(),
+      },
+    ]);
   }
 
   /* ---------------- FETCH ---------------- */
@@ -373,12 +422,21 @@ export default function DND_Denik() {
           {
             label: "Poznámky",
             icon: "🗒️",
-            onClick: () => setNotes(true),
+            onClick: addNote,
           },
         ]}
       />
       {tooltip && <Tooltip entity={tooltipEntity}></Tooltip>}
-      {notes && <Notes notes={notes} setNotes={setNotes} editable={editable} />}
+      {notes.map((note) => (
+        <Notes
+          key={note.instanceId}
+          onClose={() => onClose(note.instanceId)}
+          note={note}
+          onOpen={(id) => onOpen(id, note.instanceId)}
+          allNotes={allNotes}
+          editable={editable}
+        />
+      ))}
     </div>
   );
 }

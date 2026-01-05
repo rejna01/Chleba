@@ -1,36 +1,30 @@
-.notesContainer {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  overflow: auto;
+.notesModal {
   padding: 16px;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #797979;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  /*top: 37%;
+  right: 7%;*/
 }
-
-.note {
-  background: #f9f9f9;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  padding: 12px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-  min-height: 80px;
-  resize: vertical;
-  overflow: auto;
-}
-
-.note:focus-within {
-  border-color: #0078d4;
-  box-shadow: 0 0 0 2px #cce6ff;
-}
-
 .notesHeader {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.closeNotesButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.headerName {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.noteList {
+  border: #797979 2px solid;
 }

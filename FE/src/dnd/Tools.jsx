@@ -21,18 +21,19 @@ export default function Tools({ tools = [] }) {
   useEffect(() => {
     if (open && containerRef.current) {
       const contentHeight = containerRef.current.scrollHeight;
-      setHeight(contentHeight-24);
+      setHeight(contentHeight - 24);
     } else {
       setHeight(56); // výška kolečka
     }
   }, [open, tools.length]);
   return (
     <div ref={ref} className={styles.wrapper}>
-      <div style={{
-        height: height,
-        overflow: "hidden",
-      }}
-      ref={containerRef}
+      <div
+        style={{
+          height: height,
+          overflow: "hidden",
+        }}
+        ref={containerRef}
         className={`${styles.container} ${open ? styles.open : ""}`}
         onClick={() => !open && setOpen(true)}
       >
@@ -44,7 +45,10 @@ export default function Tools({ tools = [] }) {
               <button
                 key={index}
                 className={styles.tool}
-                onClick={tool.onClick}
+                onClick={() => {
+                  tool.onClick();
+                  setOpen(false);
+                }}
               >
                 {tool.icon && <span>{tool.icon}</span>}
                 {tool.label}
