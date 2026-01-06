@@ -2,10 +2,10 @@
   padding: 16px;
   background-color: #797979;
   border-radius: 8px;
-  top: 0;
-  left: 0;
-  /*top: 37%;
-  right: 7%;*/
+  /*top: 0;
+  left: 0;*/
+  top: 37%;
+  left: 80%;
 }
 .notesHeader {
   display: flex;

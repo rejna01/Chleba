@@ -1,12 +1,14 @@
 import Styles from "./Notes.module.css";
 import { useDrag } from "./useDrag";
+import { useResize } from "./useResize";
 import React, { useRef } from "react";
 
 export default function Notes({ onClose, onOpen, allNotes, editable, note }) {
   const boxRef = useRef(null),
-    handleRef = useRef(null);
-  useDrag(boxRef, handleRef);
-  console.log(note);
+    handleDragRef = useRef(null), handleRef = useRef(null);
+  useDrag(boxRef, handleDragRef);
+  useResize(boxRef, handleRef);
+  
   return (
     <div
       className={Styles.notesModal}
@@ -27,7 +29,7 @@ export default function Notes({ onClose, onOpen, allNotes, editable, note }) {
         <button className={Styles.closeNotesButton} onClick={onClose}>
           X
         </button>
-        <button className={Styles.closeNotesButton} ref={handleRef}>
+        <button className={Styles.closeNotesButton} ref={handleDragRef}>
           ⠿
         </button>
       </div>
@@ -51,6 +53,17 @@ export default function Notes({ onClose, onOpen, allNotes, editable, note }) {
           <div className={Styles.noteList}>+</div>
         </>
       )}
+          <div
+      ref={handleRef}
+      style={{
+        width: "20px",
+        height: "20px",
+        position: "absolute",
+        right: "0",
+        bottom: "0",
+        cursor: "se-resize",
+      }}
+    >↘</div>
     </div>
   );
 }
