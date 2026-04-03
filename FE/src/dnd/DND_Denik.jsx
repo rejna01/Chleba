@@ -4,6 +4,8 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Field from "./fields/Field.jsx";
 import Tools from "./Tools.jsx";
 import Tooltip from "./tooltips/Tooltip.jsx";
+import { openAndReadPdf, saveFilledPdf } from "./js/PDFfileWorker.js";
+import { fi } from "@faker-js/faker";
 
 function getModifier(stat) {
   return Math.floor((stat - 10) / 2);
@@ -236,6 +238,18 @@ export default function DND_Denik() {
     return { ...sheet, fields: newFields };
   }
 
+  
+  async function loadFromPDF(fieldObj) {
+    try {
+      const filledFieldObj = await openAndReadPdf(fieldObj);
+      filledFieldObj.fields.forEach((field) => {
+        saveField(field.id, field.value); 
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   /* ---------------- FETCH ---------------- */
 
   useEffect(() => {
@@ -362,6 +376,16 @@ export default function DND_Denik() {
             label: "5e.tools",
             icon: "🔗",
             onClick: () => window.open("https://5e.tools", "_blank"),
+          },
+          {
+            label: "Import PDF",
+            icon: "📥",
+            onClick: () => loadFromPDF(sheet),
+          },
+          {
+            label: "Export PDF",
+            icon: "📤",
+            onClick: () => saveFilledPdf(sheet),
           },
         ]}
       />
