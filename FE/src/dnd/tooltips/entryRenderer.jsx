@@ -14,9 +14,7 @@ export function renderEntry(entry, key) {
       return (
         <div key={key} className={Styles.entryBlock}>
           {entry.name && <strong>{entry.name}</strong>}
-          {entry.entries?.map((e, i) =>
-            renderEntry(e, `${key}-${i}`)
-          )}
+          {entry.entries?.map((e, i) => renderEntry(e, `${key}-${i}`))}
         </div>
       );
 
@@ -24,20 +22,24 @@ export function renderEntry(entry, key) {
       return (
         <ul key={key}>
           {entry.items?.map((item, i) => (
-            <li key={i}>
-              {renderEntry(item, `${key}-item-${i}`)}
-            </li>
+            <li key={i}>{renderEntry(item, `${key}-item-${i}`)}</li>
           ))}
         </ul>
       );
-
+    case "item":
+      return (
+        <div key={key} className={Styles.listItem}>
+          {entry.name && (
+            <strong className={Styles.itemName}>{entry.name}</strong>
+          )}
+          {renderEntry(entry.entry, `${key}-entry`)}
+        </div>
+      );
     case "quote":
     case "inset":
       return (
         <blockquote key={key}>
-          {entry.entries?.map((e, i) =>
-            renderEntry(e, `${key}-q-${i}`)
-          )}
+          {entry.entries?.map((e, i) => renderEntry(e, `${key}-q-${i}`))}
         </blockquote>
       );
 

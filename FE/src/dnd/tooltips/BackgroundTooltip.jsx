@@ -1,8 +1,16 @@
 import { renderEntry } from "./entryRenderer";
 import Styles from "./Tooltip.module.css";
 
-function formatProficiencies(profs) {
-  return profs?.join(", ") || "None";
+function extractProficiencies(list) {
+  if (!Array.isArray(list)) return "None";
+
+  return list
+    .flatMap((obj) =>
+      Object.entries(obj)
+        .filter(([, v]) => v === true)
+        .map(([k]) => k)
+    )
+    .join(", ");
 }
 
 export default function BackgroundTooltip({ background }) {
@@ -17,19 +25,20 @@ export default function BackgroundTooltip({ background }) {
         {background.skillProficiencies && (
           <p>
             <strong>Skill Proficiencies:</strong>{" "}
-            {formatProficiencies(background.skillProficiencies)}
+            {extractProficiencies(background.skillProficiencies)}
           </p>
         )}
+
         {background.toolProficiencies && (
           <p>
             <strong>Tool Proficiencies:</strong>{" "}
-            {formatProficiencies(background.toolProficiencies)}
+            {extractProficiencies(background.toolProficiencies)}
           </p>
         )}
-        {background.equipment && (
+
+        {background.feats && (
           <p>
-            <strong>Starting Equipment:</strong>{" "}
-            {background.equipment.join(", ")}
+            <strong>Feat:</strong> {Object.keys(background.feats[0]).join(", ")}
           </p>
         )}
       </div>

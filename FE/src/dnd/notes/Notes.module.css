@@ -1,0 +1,30 @@
+.notesModal {
+  padding: 16px;
+  background-color: #797979;
+  border-radius: 8px;
+  /*top: 0;
+  left: 0;*/
+  top: 37%;
+  left: 80%;
+}
+.notesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.closeNotesButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.headerName {
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.noteList {
+  border: #797979 2px solid;
+}
