@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Field from "./fields/Field.jsx";
 import Tools from "./Tools.jsx";
 import Tooltip from "./tooltips/Tooltip.jsx";
-import Notes from "./notes/Notes.jsx";
+//import Notes from "./notes/Notes.jsx";
 import { openAndReadPdf, saveFilledPdf } from "./js/PDFfileWorker.js";
 import { fi } from "@faker-js/faker";
 
@@ -172,10 +172,10 @@ function generateId() {
   const now = new Date();
   const pad = (n) => n.toString().padStart(2, "0");
   const datetime = `${now.getFullYear()}${pad(now.getMonth() + 1)}${pad(
-    now.getDate()
+    now.getDate(),
   )}${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
   const letters = Array.from({ length: 4 }, () =>
-    Math.floor(Math.random() * 16).toString(16)
+    Math.floor(Math.random() * 16).toString(16),
   ).join("");
 
   return `id_${datetime}_${letters}`;
@@ -206,7 +206,7 @@ export default function DND_Denik() {
 
     const profBonus = parseInt(
       sheet.fields.find((f) => f.id === "proeficiencyBonus")?.value || "0",
-      10
+      10,
     );
 
     // 1️⃣ Spočítáme všechny modifikátory nejdříve
@@ -217,7 +217,7 @@ export default function DND_Denik() {
       if (def.type === "modifier") {
         const baseValue = parseInt(
           sheet.fields.find((f) => f.id === def.base)?.value || "10",
-          10
+          10,
         );
         saveField(field.id, getModifier(baseValue).toString());
         return { ...field, value: getModifier(baseValue).toString() };
@@ -235,12 +235,12 @@ export default function DND_Denik() {
           // vezmeme aktuální mod z právě dopočtených tempFields
           const mod = parseInt(
             tempFields.find((f) => f.id === def.mod)?.value || "0",
-            10
+            10,
           );
 
           // profMultiplier z pole (0.0, 1.0, 2.0)
           const profMultiplier = parseFloat(
-            tempFields.find((f) => f.id === def.prof)?.value || "0"
+            tempFields.find((f) => f.id === def.prof)?.value || "0",
           );
 
           const value = mod + Math.round(profMultiplier * profBonus);
@@ -257,17 +257,16 @@ export default function DND_Denik() {
     return { ...sheet, fields: newFields };
   }
 
-  
   async function loadFromPDF(fieldObj) {
     try {
       const filledFieldObj = await openAndReadPdf(fieldObj);
       filledFieldObj.fields.forEach((field) => {
-        saveField(field.id, field.value); 
+        saveField(field.id, field.value);
       });
     } catch (err) {
       console.error(err);
     }
-  };
+  }
 
   function onOpen(noteId, instanceId) {
     console.log("open note", noteId, " - ", instanceId);
@@ -283,14 +282,14 @@ export default function DND_Denik() {
               size: { width: 200, height: 150 },
               pageNumber: 5,
             }
-          : note
-      )
+          : note,
+      ),
     );
   }
 
   function onClose(noteId) {
     setNotes((prevNotes) =>
-      prevNotes.filter((note) => note.instanceId !== noteId)
+      prevNotes.filter((note) => note.instanceId !== noteId),
     );
   }
   function addNote() {
@@ -328,7 +327,7 @@ export default function DND_Denik() {
     setSheet((prev) => ({
       ...prev,
       fields: prev.fields.map((field) =>
-        field.id === fieldId ? { ...field, value: newValue } : field
+        field.id === fieldId ? { ...field, value: newValue } : field,
       ),
     }));
 
@@ -443,11 +442,11 @@ export default function DND_Denik() {
             icon: "📤",
             onClick: () => saveFilledPdf(sheet),
           },
-          {
+          /*{
             label: "Poznámky",
             icon: "🗒️",
             onClick: addNote,
-          },
+          },*/
         ]}
       />
       {tooltip && <Tooltip entity={tooltipEntity}></Tooltip>}
